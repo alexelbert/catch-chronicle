@@ -1,0 +1,27 @@
+.App {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+  }
+  
+  .Main {
+    padding-top: 81px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #555555;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    transition: color ease-in-out 0.3s;
+  }
