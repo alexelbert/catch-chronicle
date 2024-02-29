@@ -10,3 +10,17 @@
 .Active {
     color: black;
   }
+
+.Brand {
+  display: flex;
+  align-items: center;
+}
+
+.BrandText {
+  margin-top: 10px;
+}
+
+.Brand img {
+  margin-right: 15px;
+}
+  
