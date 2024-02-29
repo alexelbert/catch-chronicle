@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import Upload from "../../assets/upload.png";
 
@@ -13,6 +14,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function CatchCreateForm() {
 
@@ -48,6 +51,10 @@ function CatchCreateForm() {
     image,
   } = postData;
 
+  const imageInput = useRef(null);
+
+  const history = useHistory();
+
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -65,11 +72,39 @@ function CatchCreateForm() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("caption", caption);
+    formData.append("species", species);
+    formData.append("method", method);
+    formData.append("weight", weight);
+    formData.append("length", length);
+    formData.append("location", location);
+    formData.append("latitude", latitude);
+    formData.append("longitude", longitude);
+    formData.append("time", time);
+    formData.append("weather", weather);
+    formData.append("lure", lure);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/catches/", formData);
+      history.push(`/catches/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
 
   const textFields = (
     <div className="text-center">
       {/* Caption */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Caption</Form.Label>
         <Form.Control
             type="text"
@@ -77,10 +112,15 @@ function CatchCreateForm() {
             value={caption}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
+      {errors?.caption?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
         {/* Species */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Species</Form.Label>
         <Form.Control
             type="text"
@@ -88,10 +128,15 @@ function CatchCreateForm() {
             value={species}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
+      {errors?.species?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
         {/* Method */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Method</Form.Label>
         <Form.Control
             as="select"
@@ -104,10 +149,15 @@ function CatchCreateForm() {
             <option value="spinning">Spinning</option>
             <option value="trolling">Trolling</option>
         </Form.Control>
-        </Form.Group>
+      </Form.Group>
+      {errors?.method?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
         {/* Weight */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Weight</Form.Label>
         <Form.Control
             type="number"
@@ -115,10 +165,15 @@ function CatchCreateForm() {
             value={weight}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
+      {errors?.weight?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
         {/* Length */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Length</Form.Label>
         <Form.Control
             type="number"
@@ -126,10 +181,10 @@ function CatchCreateForm() {
             value={length}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
 
         {/* Location */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Location</Form.Label>
         <Form.Control
             type="text"
@@ -137,10 +192,10 @@ function CatchCreateForm() {
             value={location}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
 
         {/* Latitude */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Latitude</Form.Label>
         <Form.Control
             type="number"
@@ -151,7 +206,7 @@ function CatchCreateForm() {
         </Form.Group>
 
         {/* Longitude */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Longitude</Form.Label>
         <Form.Control
             type="number"
@@ -159,10 +214,10 @@ function CatchCreateForm() {
             value={longitude}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
 
         {/* Time */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Time</Form.Label>
         <Form.Control
             type="time"
@@ -170,10 +225,10 @@ function CatchCreateForm() {
             value={time}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
 
         {/* Weather */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Weather</Form.Label>
         <Form.Control
             as="select"
@@ -187,10 +242,10 @@ function CatchCreateForm() {
             <option value="rainy">Rainy</option>
             <option value="stormy">Stormy</option>
         </Form.Control>
-        </Form.Group>
+      </Form.Group>
 
         {/* Lure */}
-        <Form.Group>
+      <Form.Group>
         <Form.Label>Lure</Form.Label>
         <Form.Control
             type="text"
@@ -198,7 +253,7 @@ function CatchCreateForm() {
             value={lure}
             onChange={handleChange}
         />
-        </Form.Group>
+      </Form.Group>
 
     
     
@@ -215,7 +270,7 @@ function CatchCreateForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
@@ -252,8 +307,15 @@ function CatchCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
