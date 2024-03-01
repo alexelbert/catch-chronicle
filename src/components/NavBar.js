@@ -37,6 +37,20 @@ const NavBar = () => {
   
   const loggedInIcons = (
     <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
+        Feed
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/liked"
+      >
+        Liked
+      </NavLink>
       <NavLink 
         exact
         className={styles.NavLink} 
