@@ -8,8 +8,12 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Catch from "./Catch";
+import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 function CatchPage() {
   const { id } = useParams();
@@ -21,11 +25,12 @@ function CatchPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: catches }] = await Promise.all([
+        const [{ data: catches }, {data: comments}] = await Promise.all([
           axiosReq.get(`/catches/${id}`),
+          axiosReq.get(`comments/?catches=${id}`),
         ]);
         setCatches({ results: [catches] });
-        console.log(catches);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -51,13 +56,33 @@ function CatchPage() {
         ) : comments.results.length ? (
           "Comments"
         ) : null}
-        </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles view for desktop
-      </Col>
-    </Row>
-  );
+        {comments.results.length ? (
+            <InfiniteScroll
+            children={comments.results.map((comment) => (
+              <Comment
+                key={comment.id}
+                {...comment}
+                setCatches={setCatches}
+                setComments={setComments}
+              />
+            ))}
+            dataLength={comments.results.length}
+            loader={<Asset spinner />}
+            hasMore={!!comments.next}
+            next={() => fetchMoreData(comments, setComments)}
+          />
+        ) : currentUser ? (
+          <span>No comments yet, be the first to comment!</span>
+        ) : (
+          <span>No comments... yet</span>
+        )}
+      </Container>
+    </Col>
+    <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+      
+    </Col>
+  </Row>
+);
 }
 
 export default CatchPage;
