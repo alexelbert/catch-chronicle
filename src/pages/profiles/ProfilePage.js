@@ -103,7 +103,7 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
+        {/* {profile?.bio && <Col className="p-3">{profile.bio}</Col>} */}
       </Row>
     </>
   );
@@ -112,6 +112,10 @@ function ProfilePage() {
     <>
       <hr />
       <p className="text-center">{profile?.owner}'s catches</p>
+      <p className="text-center">{profile?.name}</p>
+      <p className="text-center">{profile?.location}</p>
+      <p className="text-center">{profile?.bio}</p>
+      <p className="text-center">balbalbalbalabl</p>
       <hr />
       {profileCatches.results.length ? (
         <InfiniteScroll
