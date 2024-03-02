@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import MyCatchesPage from "./pages/catches/MyCatchesPage";
 
 
 
@@ -60,6 +61,7 @@ function App() {
           <Route exact path="/catches/:id" render={() => <CatchPage />} />
           <Route exact path="/catches/:id/edit" render={() => <CatchEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/mycatches" render={() => <MyCatchesPage />} />
           <Route
             exact
             path="/profiles/:id/edit/username"
