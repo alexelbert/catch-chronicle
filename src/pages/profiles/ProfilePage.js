@@ -103,7 +103,37 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {/* {profile?.bio && <Col className="p-3">{profile.bio}</Col>} */}
+      </Row>
+  
+      {/* Display Name and Location */}
+      <Row className="px-3 text-center">
+        {profile?.name && <Col className="p-3">{profile.name}</Col>}
+        {profile?.location && <Col className="p-3">{profile.location}</Col>}
+      </Row>
+  
+      {/* Display Bio and URLs */}
+      <Row className="px-3 text-center">
+        <Col xs={12} className="p-3">
+          {profile?.bio && <div>{profile.bio}</div>}
+          <div className="urls">
+            {profile?.facebook_url && (
+              <a href={profile.facebook_url} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-facebook"></i>
+              </a>
+            )}
+            {profile?.twitter_url && (
+              <a href={profile.twitter_url} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-twitter"></i>
+              </a>
+            )}
+            {profile?.instagram_url && (
+              <a href={profile.instagram_url} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-instagram"></i>
+              </a>
+            )}
+            {/* Add more social media icons as needed */}
+          </div>
+        </Col>
       </Row>
     </>
   );
@@ -112,10 +142,6 @@ function ProfilePage() {
     <>
       <hr />
       <p className="text-center">{profile?.owner}'s catches</p>
-      <p className="text-center">{profile?.name}</p>
-      <p className="text-center">{profile?.location}</p>
-      <p className="text-center">{profile?.bio}</p>
-      <p className="text-center">balbalbalbalabl</p>
       <hr />
       {profileCatches.results.length ? (
         <InfiniteScroll
