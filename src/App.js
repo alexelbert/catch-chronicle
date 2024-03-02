@@ -11,6 +11,9 @@ import CatchesPage from "./pages/catches/CatchesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import CatchEditForm from "./pages/catches/CatchEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 
 
@@ -57,6 +60,21 @@ function App() {
           <Route exact path="/catches/:id" render={() => <CatchPage />} />
           <Route exact path="/catches/:id/edit" render={() => <CatchEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
