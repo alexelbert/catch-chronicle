@@ -19,9 +19,14 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Catch from "../catches/Catch";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profileCatches, setProfileCatches] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
@@ -32,13 +37,16 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-        ]);
+        const [{ data: pageProfile }, { data: profileCatches }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/catches/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfileCatches(profileCatches);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -62,15 +70,15 @@ function ProfilePage() {
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.catches_count}</div>
-              <div>catches</div>
+              <div>Catches</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <div>Followers</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
-              <div>following</div>
+              <div>Following</div>
             </Col>
           </Row>
         </Col>
@@ -82,14 +90,14 @@ function ProfilePage() {
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                 onClick={() => {}}
               >
-                unfollow
+                Unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
                 onClick={() => {}}
               >
-                follow
+                Follow
               </Button>
             ))}
         </Col>
@@ -98,11 +106,27 @@ function ProfilePage() {
     </>
   );
 
-  const mainProfilePosts = (
+  const mainProfileCatches = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <p className="text-center">{profile?.owner}'s catches</p>
       <hr />
+      {profileCatches.results.length ? (
+        <InfiniteScroll
+          children={profileCatches.results.map((post) => (
+            <Catch key={post.id} {...post} setCatches={setProfileCatches} />
+          ))}
+          dataLength={profileCatches.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileCatches.next}
+          next={() => fetchMoreData(profileCatches, setProfileCatches)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results, ${profile?.owner} hasn't made a catch yet.`}
+        />
+      )}
     </>
   );
 
@@ -114,7 +138,7 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
+              {mainProfileCatches}
             </>
           ) : (
             <Asset spinner />
