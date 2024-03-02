@@ -10,6 +10,8 @@ import CatchPage from "./pages/catches/CatchPage";
 import CatchesPage from "./pages/catches/CatchesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import CatchEditForm from "./pages/catches/CatchEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
+
 
 
 function App() {
@@ -54,6 +56,7 @@ function App() {
           <Route exact path="/catches/create" render={() => <CatchCreateForm />} />
           <Route exact path="/catches/:id" render={() => <CatchPage />} />
           <Route exact path="/catches/:id/edit" render={() => <CatchEditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
