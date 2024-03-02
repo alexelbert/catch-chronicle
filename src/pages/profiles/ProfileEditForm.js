@@ -34,6 +34,7 @@ const ProfileEditForm = () => {
     twitter_url: "",
     instagram_url: "",
   });
+  
   const { name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url } = profileData;
 
   const [errors, setErrors] = useState({});
@@ -70,27 +71,19 @@ const ProfileEditForm = () => {
     formData.append("name", name);
     formData.append("bio", bio);
     formData.append("location", location);
-    formData.append("profile_picture", profile_picture); // Always append the current profile_picture
-    if (imageFile?.current?.files[0]) {
-      formData.append("profile_picture", imageFile?.current?.files[0]); // Overwrite with new file if it exists
-    }
     formData.append("facebook_url", facebook_url);
     formData.append("twitter_url", twitter_url);
     formData.append("instagram_url", instagram_url);
+    
+    if (imageFile?.current?.files[0]) {
+      formData.append("profile_picture", imageFile?.current?.files[0]);
+    }
     
     try {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
         profile_picture: data.profile_picture,
-        // get an error: "The submitted data was not a file. Check the encoding type on the form." 
-        // form is not submitting the changes for the text fields
-        // bio: data.bio,
-        // location: data.location,
-        // name: data.name,
-        // facebook_url: data.facebook_url,
-        // twitter_url: data.twitter_url,
-        // instagram_url: data.instagram_url,
       }));
       history.goBack();
     } catch (err) {
