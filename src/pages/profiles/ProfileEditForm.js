@@ -27,10 +27,14 @@ const ProfileEditForm = () => {
 
   const [profileData, setProfileData] = useState({
     name: "",
-    content: "",
+    bio: "",
+    location: "",
     profile_picture: "",
+    facebook_url: "",
+    twitter_url: "",
+    instagram_url: "",
   });
-  const { name, content, profile_picture } = profileData;
+  const { name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +43,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, profile_picture } = data;
-          setProfileData({ name, content, profile_picture });
+          const { name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url } = data;
+          setProfileData({ name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -64,17 +68,29 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("content", content);
-
+    formData.append("bio", bio);
+    formData.append("location", location);
+    formData.append("profile_picture", profile_picture); // Always append the current profile_picture
     if (imageFile?.current?.files[0]) {
-      formData.append("profile_picture", imageFile?.current?.files[0]);
+      formData.append("profile_picture", imageFile?.current?.files[0]); // Overwrite with new file if it exists
     }
-
+    formData.append("facebook_url", facebook_url);
+    formData.append("twitter_url", twitter_url);
+    formData.append("instagram_url", instagram_url);
+    
     try {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
         profile_picture: data.profile_picture,
+        // get an error: "The submitted data was not a file. Check the encoding type on the form." 
+        // form is not submitting the changes for the text fields
+        // bio: data.bio,
+        // location: data.location,
+        // name: data.name,
+        // facebook_url: data.facebook_url,
+        // twitter_url: data.twitter_url,
+        // instagram_url: data.instagram_url,
       }));
       history.goBack();
     } catch (err) {
@@ -86,17 +102,57 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          value={name}
+          onChange={handleChange}
+          name="name"
+        />
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as="textarea"
-          value={content}
+          value={bio}
           onChange={handleChange}
-          name="content"
+          name="bio"
           rows={7}
+        />
+        {errors?.bio?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+        ))}
+        <Form.Label>Location</Form.Label>
+        <Form.Control
+          type="text"
+          value={location}
+          onChange={handleChange}
+          name="location"
+        />
+        <Form.Label>Facebook URL</Form.Label>
+        <Form.Control
+          type="url"
+          value={facebook_url}
+          onChange={handleChange}
+          name="facebook_url"
+        />
+        <Form.Label>Twitter URL</Form.Label>
+        <Form.Control
+          type="url"
+          value={twitter_url}
+          onChange={handleChange}
+          name="twitter_url"
+        />
+        <Form.Label>Instagram URL</Form.Label>
+        <Form.Control
+          type="url"
+          value={instagram_url}
+          onChange={handleChange}
+          name="instagram_url"
         />
       </Form.Group>
 
-      {errors?.content?.map((message, idx) => (
+      {errors?.bio?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
