@@ -34,14 +34,14 @@ const Profile = (props) => {
               className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
               onClick={() => {}}
             >
-              unfollow
+              Unfollow
             </Button>
           ) : (
             <Button
               className={`${btnStyles.Button} ${btnStyles.Black}`}
               onClick={() => {}}
             >
-              follow
+              Follow
             </Button>
           ))}
       </div>
