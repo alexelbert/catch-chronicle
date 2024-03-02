@@ -12,7 +12,7 @@ const Catch = (props) => {
     id,
     owner,
     profile_id,
-    profile_image,
+    profile_picture,
     comments_count,
     likes_count,
     like_id,
@@ -87,7 +87,7 @@ const Catch = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
+            <Avatar src={profile_picture} height={55} />
             {owner}
           </Link>
           <div className="d-flex align-items-center">

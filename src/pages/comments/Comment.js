@@ -11,7 +11,7 @@ import CommentEditForm from "./CommentEditForm";
 const Comment = (props) => {
   const {
     profile_id,
-    profile_image,
+    profile_picture,
     owner,
     updated_at,
     content,
@@ -48,7 +48,7 @@ const Comment = (props) => {
       <hr />
       <Media>
         <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profile_image} />
+          <Avatar src={profile_picture} />
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
@@ -58,7 +58,7 @@ const Comment = (props) => {
               content={content} 
               id={id} 
               profile_id={profile_id}
-              profile_image={profile_image}
+              profile_picture={profile_picture}
               setShowEditForm={setShowEditForm} 
               setComments={setComments}
             />

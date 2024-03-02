@@ -28,9 +28,9 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
-    image: "",
+    profile_picture: "",
   });
-  const { name, content, image } = profileData;
+  const { name, content, profile_picture } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +39,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, content, profile_picture } = data;
+          setProfileData({ name, content, profile_picture });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -67,14 +67,14 @@ const ProfileEditForm = () => {
     formData.append("content", content);
 
     if (imageFile?.current?.files[0]) {
-      formData.append("image", imageFile?.current?.files[0]);
+      formData.append("profile_picture", imageFile?.current?.files[0]);
     }
 
     try {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
-        profile_image: data.image,
+        profile_picture: data.profile_picture,
       }));
       history.goBack();
     } catch (err) {
@@ -119,12 +119,12 @@ const ProfileEditForm = () => {
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
           <Container className={appStyles.Content}>
             <Form.Group>
-              {image && (
+              {profile_picture && (
                 <figure>
-                  <Image src={image} fluid />
+                  <Image src={profile_picture} fluid />
                 </figure>
               )}
-              {errors?.image?.map((message, idx) => (
+              {errors?.profile_picture?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
@@ -145,7 +145,7 @@ const ProfileEditForm = () => {
                   if (e.target.files.length) {
                     setProfileData({
                       ...profileData,
-                      image: URL.createObjectURL(e.target.files[0]),
+                      profile_picture: URL.createObjectURL(e.target.files[0]),
                     });
                   }
                 }}

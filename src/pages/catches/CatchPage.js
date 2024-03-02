@@ -19,7 +19,7 @@ function CatchPage() {
   const { id } = useParams();
   const [catches, setCatches] = useState({ results: [] });
   const currentUser = useCurrentUser();
-  const profile_image = currentUser?.profile_image;
+  const profile_picture = currentUser?.profile_picture;
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function CatchPage() {
         {currentUser ? (
         <CommentCreateForm
           profile_id={currentUser.profile_id}
-          profileImage={profile_image}
+          profilePicture={profile_picture}
           id={id}
           setCatches={setCatches}
           setComments={setComments}

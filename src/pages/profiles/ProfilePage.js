@@ -23,6 +23,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Catch from "../catches/Catch";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -62,11 +63,12 @@ function ProfilePage() {
           <Image
             className={styles.ProfileImage}
             roundedCircle
-            src={profile?.image}
+            src={profile?.profile_picture}
           />
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
+          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.catches_count}</div>
@@ -101,7 +103,7 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
       </Row>
     </>
   );
