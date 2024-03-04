@@ -20,6 +20,17 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import { useEffect } from "react";
+import axios from 'axios';
+
+async function getAddressFromCoords(lat, lng) {
+  try {
+    const response = await axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lng}&format=json`);
+    return response.data.place_id;
+  } catch (error) {
+    console.error(error);
+    return 'test';
+  }
+}
 
 function CatchCreateForm() {
 
@@ -108,14 +119,19 @@ function CatchCreateForm() {
 
   // Get user's current location and time
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      const location = await getAddressFromCoords(lat, lng);
+  
       setPostData((prevData) => ({
         ...prevData,
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
+        latitude: lat,
+        longitude: lng,
+        location: location,
       }));
     });
-
+  
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     setPostData((prevData) => ({
       ...prevData,
