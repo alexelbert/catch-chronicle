@@ -13,14 +13,14 @@
     margin: 0 0;
   }
   
-  .Heart {
+  .Thumb {
     color: var(--primary-color);
   }
   
-  .Heart:hover {
+  .Thumb:hover {
     color: var(--icon-hover-color);
   }
   
-  .HeartOutline:hover {
+  .ThumbOutline:hover {
     color: var(--icon-hover-color);
   }

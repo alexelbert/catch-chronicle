@@ -139,29 +139,29 @@ const Catch = (props) => {
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>You can't like your own post!</Tooltip>}
+                overlay={<Tooltip>You can't like your own catch</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className="fa-solid fa-thumbs-up" />
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
-                <i className={`fas fa-heart ${styles.Heart}`} />
+                <i className={`fa-solid fa-thumbs-up ${styles.Thumb}`} />
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
+                <i className={`fa-solid fa-thumbs-up ${styles.ThumbOutline}`} />
               </span>
             ) : (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to like posts!</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className="fa-solid fa-thumbs-up" />
               </OverlayTrigger>
             )}
             {likes_count}
             <Link to={`/catches/${id}`}>
-              <i className="far fa-comments" />
+              <i className="fa-regular fa-comment" />
             </Link>
             {comments_count}
           </div>
