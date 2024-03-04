@@ -44,7 +44,7 @@ const Comment = (props) => {
       // Close the modal after successful deletion
       setShowModal(false);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

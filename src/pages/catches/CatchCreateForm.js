@@ -110,7 +110,7 @@ function CatchCreateForm() {
       const { data } = await axiosReq.post("/catches/", formData);
       history.push(`/catches/${data.id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

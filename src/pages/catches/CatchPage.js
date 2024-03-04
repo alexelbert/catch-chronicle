@@ -32,7 +32,7 @@ function CatchPage() {
         setCatches({ results: [catches] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

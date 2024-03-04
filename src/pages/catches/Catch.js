@@ -44,7 +44,7 @@ const Catch = (props) => {
       await axiosRes.delete(`/catches/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -68,7 +68,7 @@ const Catch = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -84,7 +84,7 @@ const Catch = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
