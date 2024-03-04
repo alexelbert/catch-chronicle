@@ -1,26 +1,12 @@
 .NavBar {
-    background-color: white;
-    border: 1px solid lightgray;
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
 }
 
 .NavLink {
-    padding: 5px;
-  }
-
-.Active {
-    color: black;
-  }
-
-.Brand {
-  display: flex;
-  align-items: center;
+  padding: 5px;
 }
 
-.BrandText {
-  margin-top: 10px;
+.Active i {
+  color: #2142b2;
 }
-
-.Brand img {
-  margin-right: 15px;
-}
-  
