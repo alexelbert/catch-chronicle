@@ -70,9 +70,69 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 - Signed-in users can comment on sounds by submitting the comment form on the sound detail page.
 - New comments will appear underneath the catch detail and can be edited or deleted by clicking on the dots in the comment dropdown menu.
 - The number of comments will appear underneath the catches details.
-- Users can like catches by clicking on the heart icon on the catch detail page.
+- Users can like catches by clicking on the thumbs up icon on the catch detail page.
 
 ![Screen for comments and likes]()
+
+## Design
+
+Focus for the design was from a user centred perspective, following the five planes of UX. The design of the front end part of the project had to go well together with the backend part.
+
+### Strategy Plane
+
+**Catch Chronicle** is a social media application dedicated to sharing your catches with other enthusiasts who has an interest in fishing and would like to connect with others or just perhaps boast about a priced catch. Main goal is to have an easy way of storing your catches and share with friends and followers your catches during a fishing trip, while interacting with other enthusiasts in a fun way.
+
+Using coordinated through geolocation is a good way for a user to find out about potential fishing spots or just have a really good reference in case you have forgotten where you had a good fishing experience so that you can come back to that same spot.
+
+Just having a good reference of all your catches can give you a clear picture of how your fishing has been and you could perhaps start seeing patterns of better conditions depending on weather or what type of lure you are using.
+
+The social interaction feature allows you to follow, liking and commenting on other users catches and encourages you to engage with people with a common interest.
+
+### Scope Plane
+
+For the scope of the project separate sets of user stories was created for backend and frontend.
+
+
+### Structure Plane
+
+The planning of the project revolved around thinking about the frontend early since the backend (DB, models, API endpoints) since it had to be done before to match what was wanted in the frontend.
+
+### Skeleton Plane
+
+Layout of the application is with a mobile-first mindset since main use is intended for using on the go. Design is fully responsive and can be used on all screen sizes.
+
+The user interface can be diverted into three main sections:
+- Navigation bar with the following:
+  - Catch Chronicle logo and title
+  - Sign-up and sign-in links for signed-out users
+  - Add Catch link to log a catch
+  - Feed link to see catches users you are following have made
+  - Liked link to see your favourite catches that you have liked
+  - My Catches link to get a table of all your catches filtered to have your latest catch first
+- Content Section displaying the content of the current page
+
+Wireframes for desktop
+![Desktop wireframes](/docs/wireframes/Wireframe%20-%201.png)
+
+### Surface Plane
+
+#### Logo
+
+For the surface plane was the first thing was to design a logo for the website two fish outlines. It was important to keep it simple so it would look good in small sizes and that it could also be used as a favicon. I used black and grey for a minimalistic look.
+
+![Logo](/docs/logo-black.png)
+
+#### Colours
+
+I choose to use a pallet of different shades of greens for a mellow and nature inspired feel for buttons and other colour elements.
+
+![Colours](/docs/screenshots/colours.png)
+
+#### Fonts
+
+I chose Open Sans as the main font for the application for its clean look and good legibility throughout the website. 
+
+To differentiate the application name from the rest I chose to use Patua One slab serif text type that works well use din small sizes and has a chunky and friendly appearance. 
 
 
 <hr>
