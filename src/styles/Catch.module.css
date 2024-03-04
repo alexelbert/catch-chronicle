@@ -1,3 +1,5 @@
+@import '../colours.css';
+
 .Catch {
     background-color: #ffffff;
     border: 1px solid #dadadf;
@@ -12,13 +14,13 @@
   }
   
   .Heart {
-    color: black;
+    color: var(--primary-color);
   }
   
   .Heart:hover {
-    color: #2142b2;
+    color: var(--icon-hover-color);
   }
   
   .HeartOutline:hover {
-    color: black;
+    color: var(--icon-hover-color);
   }

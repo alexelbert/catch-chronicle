@@ -4,9 +4,27 @@
 }
 
 .NavLink {
+  margin-right: 10px;
   padding: 5px;
+  display: flex;
+  align-items: center; /* Center children vertically  for alignment*/
+}
+
+.NavLink:hover {
+  text-decoration: none;
 }
 
 .Active i {
   color: #2142b2;
+}
+
+.Brand img {
+  margin-right: 15px;
+}
+
+.BrandText {
+  font-family: "Patua One", serif;
+  font-size: x-large;
+  font-weight: 400;
+  font-style: normal;
 }

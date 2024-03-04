@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #3a5a40;
+    --dark-green: #344E41
+    --secondary-color: #555555;
+    --background-color: #f8f8f8;
+    --content-background-color: #ffffff;
+    --border-color: #dadadf;
+    --scrollbar-bg-color: #f1f1f1;
+    --scrollbar-thumb-color: #888;
+    --scrollbar-thumb-hover-color: #555;
+    --icon-color: #cfced3;
+    --icon-hover-color: #A3B18A;
+  }
