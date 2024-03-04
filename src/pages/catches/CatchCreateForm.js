@@ -19,6 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useEffect } from "react";
 
 function CatchCreateForm() {
 
@@ -105,6 +106,22 @@ function CatchCreateForm() {
     }
   };
 
+  // Get user's current location and time
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setPostData((prevData) => ({
+        ...prevData,
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }));
+    });
+
+    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    setPostData((prevData) => ({
+      ...prevData,
+      time: currentTime,
+    }));
+  }, []);
 
   const textFields = (
     <div className="text-center">
@@ -112,10 +129,11 @@ function CatchCreateForm() {
       <Form.Group>
         <Form.Label>Caption</Form.Label>
         <Form.Control
-            type="text"
-            name="caption"
-            value={caption}
-            onChange={handleChange}
+          as="textarea"
+          rows={3} // Adjust this number to change the height of the textarea
+          name="caption"
+          value={caption}
+          onChange={handleChange}
         />
       </Form.Group>
       {errors?.caption?.map((message, idx) => (
