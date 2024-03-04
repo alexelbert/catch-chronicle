@@ -1,12 +1,15 @@
+@import '../colours.css';
+
 .Row {
   height: calc(100vh - 81px);
 }
+
 .Input {
-  background: #ffffff;
-  border: 1px solid #f0f1f9;
+  background: var(--content-background-color);
+  border: 1px solid var(--border-color);
   box-sizing: border-box;
   border-radius: 2px;
-  color: #7177a1;
+  color: var(--secondary-color);
   text-align: center;
   padding: 10px;
 }

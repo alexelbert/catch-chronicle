@@ -38,13 +38,13 @@
 .BlueOutline:hover,
 .Bright:hover {
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--background-color);
 }
 
 .BlueOutline,
 .Blue:hover {
   /* border: 1px solid var(--primary-color); */
-  background-color: #ffffff;
+  background-color: var(--background-color);
   color: var(--primary-color);
 }
 

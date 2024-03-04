@@ -1,6 +1,8 @@
+@import '../colours.css';
+
 .NavBar {
-  background-color: #ffffff;
-  border: 1px solid #dadadf;
+  background-color: var(--content-background-color);
+  border: 1px solid var(--border-color);
 }
 
 .NavLink {
@@ -15,7 +17,7 @@
 }
 
 .Active i {
-  color: #2142b2;
+  color: var(--primary-color);
 }
 
 .Brand img {

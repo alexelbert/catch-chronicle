@@ -1,8 +1,8 @@
 @import '../colours.css';
 
 .Catch {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
+    background-color: var(--content-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;

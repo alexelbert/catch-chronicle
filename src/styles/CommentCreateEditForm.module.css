@@ -1,20 +1,28 @@
+@import '../colours.css';
+
 .Form {
   border: none;
-  border-bottom: 2px #00d1ff solid;
+  border-bottom: 3px solid var(--light-green);
+  transition: border-color 0.3s ease;
+}
+
+.Form:focus-within {
+  border-color: var(--light-green);
 }
 
 .Button {
   border: none;
-  background-color: #242a3d;
-  color: aliceblue;
-  border-radius: 100px;
-  padding: 4px 10px;
-  min-width: 75px;
-  margin: 5px;
+  background-color: var(--dark-green);
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  min-width: 80px;
+  margin: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .Button:hover {
   cursor: pointer;
-  background-color: aliceblue;
+  background-color: #fff;
   color: #242a3d;
 }

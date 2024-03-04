@@ -1,8 +1,10 @@
+@import '../colours.css';
+
 .DropdownItem {
   display: inline-block;
   max-width: 100%;
   padding: 10px 20px;
-  color: #333;
+  color: var(--dark-green);
   font-size: 14px;
   line-height: 1.5;
   text-align: left;
@@ -10,10 +12,8 @@
 
 .Absolute {
   position: absolute;
+  margin-left: 15px;
   right: 0;
   z-index: 99;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
