@@ -106,26 +106,28 @@ const Catch = (props) => {
       </Link>
       <Card.Body>
         {caption && <Card.Title className="text-center">{caption}</Card.Title>}
-        <div className="row">
-          <div className="col-md-6">
-            <ul className="list-unstyled">
-              <li><strong>Species:</strong> {species}</li>
-              <li><strong>Method:</strong> {method}</li>
-              <li><strong>Weight:</strong> {weight}</li>
-              <li><strong>Length:</strong> {length}</li>
-            </ul>
+        {catchPage && (
+          <div className="row">
+            <div className="col-md-6">
+              <ul className="list-unstyled">
+                <li><strong>Species:</strong> {species}</li>
+                <li><strong>Method:</strong> {method}</li>
+                <li><strong>Weight:</strong> {weight}</li>
+                <li><strong>Length:</strong> {length}</li>
+              </ul>
+            </div>
+            <div className="col-md-6">
+              <ul className="list-unstyled">
+                <li><strong>Location:</strong> {location}</li>
+                <li><strong>Latitude:</strong> {latitude}</li>
+                <li><strong>Longitude:</strong> {longitude}</li>
+                <li><strong>Time:</strong> {time}</li>
+                <li><strong>Weather:</strong> {weather}</li>
+                <li><strong>Lure:</strong> {lure}</li>
+              </ul>
+            </div>
           </div>
-          <div className="col-md-6">
-            <ul className="list-unstyled">
-              <li><strong>Location:</strong> {location}</li>
-              <li><strong>Latitude:</strong> {latitude}</li>
-              <li><strong>Longitude:</strong> {longitude}</li>
-              <li><strong>Time:</strong> {time}</li>
-              <li><strong>Weather:</strong> {weather}</li>
-              <li><strong>Lure:</strong> {lure}</li>
-            </ul>
-          </div>
-        </div>
+        )}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
