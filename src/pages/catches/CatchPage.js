@@ -42,7 +42,6 @@ function CatchPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles view for mobile</p>
         <Catch {...catches.results[0]} setCatches={setCatches} catchPage />
         <Container className={appStyles.Content}>
         {currentUser ? (
