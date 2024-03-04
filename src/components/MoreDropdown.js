@@ -4,9 +4,9 @@ import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
 
-const ThreeDots = React.forwardRef(({ onClick }, ref) => (
+const GearIcon = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis-v"
+    className="fas fa-cog"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -18,7 +18,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+      <Dropdown.Toggle as={GearIcon} />
 
       <Dropdown.Menu
         className="text-center"
@@ -29,14 +29,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <i className="fa-regular fa-pen-to-square" /> Edit
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <i className="fa-regular fa-trash-can" /> Delete
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -47,13 +47,13 @@ export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+      <Dropdown.Toggle as={GearIcon} />
       <Dropdown.Menu>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> Edit Profile
+          <i className="fa-regular fa-pen-to-square" /> Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
