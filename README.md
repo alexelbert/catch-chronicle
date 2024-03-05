@@ -161,6 +161,11 @@ All used third party libraries contribute important features to the application.
 - [Visual Studio Code](https://code.visualstudio.com) was used as code editor.
 
 
+## Testing
+
+All Testing procedures for the application have been documented here: [Testing Documentation](/docs/TESTING.md)
+
+
 ## Deployment
 
 The application was deployed to [Heroku](https://heroku.com). The Applications live version can be found at https://catch-chronicle-61d760d135f4.herokuapp.com.
