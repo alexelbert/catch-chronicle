@@ -1,3 +1,14 @@
+## Automated Testing
+
+The logic of the most important features of the application have been tested with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+
+Most tested features behaved as expected but was not as extensive as i would have liked due to time limitations unfortunately. Authentication was primarily tested with automated tests.
+
+### Performed Tests
+
+The following automated tests have been performed:
+
+
 ## Manual Testing
 
 - The website was manually tested on a variety of devices (desktop, laptop, tablet, and smartphone) and browsers. The following browsers and operating systems have been tested:

@@ -6,6 +6,8 @@
 Simple joy of catching moments often goes overlooked, unless it's something extraordinary. **Catch Chronicle** urges you to embrace those everyday catches and celebrate the moments that matter with others.
 Whether you're reeling in a big fish on a serene lake or capturing the laughter of your loved ones during a family gathering, log your catches and share these cherished memories with your fellow anglers and friends.
 
+![Am I Responsive?](/docs/screenshots/am-i-responsive-catch-chronicle.png)
+
 <hr>
 
 **Key features:**
@@ -34,12 +36,12 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 
 - Signed-out users can see a list of all catches and search for catches. To use the other features of the app, an account creation is required and sign in.
 
-![Screen for signed-out users]()
+![Screen for signed-out users](/docs/screenshots/logged-out-user.png)
 
 - Signed in users can access their feed, their liked catches.
 - Users can also log catches by clicking on the add catch link in the navigation bar.
 
-![Screen for signed-in users]()
+![Screen for signed-in users](/docs/screenshots/logged-in-user.png)
 
 #### User Profiles
 
@@ -48,7 +50,7 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 - Also, change their username and password by clicking on the corresponding options on their profile page dropdown menu.
 - Users can follow other users by clicking on the Follow button on their profile page or in the *Popular profiles* widget.
 
-![Screen for user profile]()
+![Screen for user profile](/docs/screenshots/user-profile-page.png)
 
 #### Add Catch
 
@@ -57,13 +59,13 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 - Location data can be added automatically if the user grants the application access to their current location. Alternatively, users can type in location on their own.
 - After submitting the form, the user will be redirected to the catch detail page, which can also be accessed by clicking on a catch.
 
-![Screen for add catch]()
+![Screen for add catch](/docs/screenshots/add-catch-page.png)
 
 #### Editing and Deleting Sounds
 
 - Users can edit and delete their catches by clicking on the dropdown menu indicated by three dots on the catch detail page.
 
-![Screen for catch details]()
+![Screen for catch details](/docs/screenshots/catchdetails-page.png)
 
 #### Comments and Likes
 
@@ -72,7 +74,27 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 - The number of comments will appear underneath the catches details.
 - Users can like catches by clicking on the thumbs up icon on the catch detail page.
 
-![Screen for comments and likes]()
+![Screen for comments and likes](/docs/screenshots/comments-likes.png)
+
+#### My Catches
+
+- Users can see a table of all their catches and information filtered so that the most recent catch is showing first
+
+![My Catches](/docs/screenshots/my-catches-page.png)
+
+#### Reusable Components
+- Asset component that's function is an asset e.g image along with optional features like a loading spinner.
+- Avatar component displaying a avatar image along with text that is optional, can also customize source and height.
+- MoreDropdown component used for creating different dropdown menus, both profile related and generic use for editing e.g.
+- NavBar component that is reusable with a user friendly interface that includes conditional rendering depending on the users authentication status.
+- NotFound component, renders not found message when user tries and access page that does not exist.
+
+
+#### Future Features
+
+The following features has not been included in the current scope of the project but would like to add in the future:
+- Implement weather details fetched from location and added on to catch data.
+- Add on capability for generating detailed graphs/diagram to be able to draw some conclusions of their fishing results.
 
 ## Design
 
@@ -159,6 +181,9 @@ All used third party libraries contribute important features to the application.
 - [GitHub](https://github.com/) is used to store all project files in the [repository](https://github.com/alexelbert/catch-chronicle)
 - [Heroku](https://heroku.com/) is used to deployment.
 - [Visual Studio Code](https://code.visualstudio.com) was used as code editor.
+- [Am I Responsive?](https://ui.dev/amiresponsive?url=https://catch-chronicle-61d760d135f4.herokuapp.com) was used to generate responsive images of website.
+- [Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/) was used for performance test of deployed website.
+- [Figma](https://www.figma.com) was used for making wireframes.
 
 
 ## Testing
