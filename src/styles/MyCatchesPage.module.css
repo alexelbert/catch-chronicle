@@ -1,0 +1,59 @@
+@import '../colours.css';
+
+
+/* Style for the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style for table headers */
+  .table th {
+    background-color: var(--dark-green);
+    color: var(--background-color);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Style for table cells */
+  .table td {
+    padding: 8px;
+  }
+  
+  /* Alternate row color */
+  .table tbody tr:nth-child(even) {
+    background-color: var(--icon-color); /* Light gray color, you can change this to any color you prefer */
+  }
+  
+
+  /* Responsive */
+
+  @media (max-width: 769px){
+    .table thead{
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+
+    .table tr{
+        margin-bottom: 15px;
+    }
+
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+    }
+
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+  }
