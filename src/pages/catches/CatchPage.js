@@ -27,7 +27,7 @@ function CatchPage() {
       try {
         const [{ data: catches }, {data: comments}] = await Promise.all([
           axiosReq.get(`/catches/${id}`),
-          axiosReq.get(`comments/?catches=${id}`),
+          axiosReq.get(`comments/?catchId=${id}`),
         ]);
         setCatches({ results: [catches] });
         setComments(comments);
