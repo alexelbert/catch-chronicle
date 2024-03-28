@@ -29,7 +29,7 @@ const NavBar = () => {
   const addCatchIcon = (
     <NavLink 
       exact
-      className={styles.NavLink} 
+      className={`${styles.NavLink} ${styles.ButtonLink}`}
       activeClassName={styles.Active}
       to="/catches/create" 
     >
@@ -90,7 +90,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink 
         exact
-        className={styles.NavLink} 
+        className={`${styles.NavLink} ${styles.ButtonLink}`} 
         activeClassName={styles.Active}
         to="/signup" 
       >
