@@ -10,19 +10,3 @@
   border-color: var(--light-green);
 }
 
-.Button {
-  border: none;
-  background-color: var(--dark-green);
-  color: #fff;
-  border-radius: 50px;
-  padding: 10px 20px;
-  min-width: 80px;
-  margin: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.Button:hover {
-  cursor: pointer;
-  background-color: #fff;
-  color: #242a3d;
-}

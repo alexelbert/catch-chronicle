@@ -20,8 +20,6 @@
 
 .Button:hover, .Button:focus {
   background-color: var(--dark-green);
-  box-shadow: none;
-  border: none;
 }
 
 .Button:hover {
