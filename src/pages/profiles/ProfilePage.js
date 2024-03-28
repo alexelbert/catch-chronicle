@@ -8,7 +8,6 @@ import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -18,12 +17,13 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Catch from "../catches/Catch";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import FollowButton from "../../components/FollowButton";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -68,7 +68,6 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
-          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.catches_count}</div>
@@ -85,23 +84,16 @@ function ProfilePage() {
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
+          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           {currentUser &&
             !is_owner &&
-            (profile?.following_id ? (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => handleUnfollow(profile)}
-              >
-                Unfollow
-              </Button>
-            ) : (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => handleFollow(profile)}
-              >
-                Follow
-              </Button>
-            ))}
+            <FollowButton
+              isFollowing={profile?.following_id}
+              handleFollow={handleFollow}
+              handleUnfollow={handleUnfollow}
+              profile={profile}
+            />
+          }
         </Col>
       </Row>
   
