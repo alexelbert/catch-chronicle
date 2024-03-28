@@ -1,69 +1,32 @@
 @import '../colours.css';
 
-:root {
-  --button-padding: 4px 10px;
-  --button-margin: 2px;
-  --button-min-width: 75px;
-  --button-border-radius: 100px;
-  --button-font-size: 0.8rem;
-  --button-align-self: center;
-  --button-border-color: transparent;
-  --button-hover-opacity: 0.8;
-  --button-active-bg-color: var(--primary-color);
-  --button-focus-bg-color: var(--primary-color);
-  --wide-button-padding: 10px 50px;
-  --wide-button-width: 100%;
+/* Button Styles */
+.Button {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 80px; 
+  box-sizing: border-box;
+  border: none;
 }
 
-.Button {
-  font-size: var(--button-font-size);
-  align-self: var(--button-align-self);
-  border-radius: var(--button-border-radius);
-  border-color: var(--button-border-color);
-  padding: var(--button-padding);
-  margin-left: var(--button-margin);
-  margin-right: var(--button-margin);
-  min-width: var(--button-min-width);
+.Button:hover, .Button:focus {
+  background-color: var(--dark-green);
+  box-shadow: none;
+  border: none;
 }
 
 .Button:hover {
-  opacity: var(--button-hover-opacity);
-  border-color: var(--button-border-color);
-  cursor: pointer;
+  transform: scale(1.2);
 }
 
-.Button:hover:active,
-.Button:active {
-  background-color: var(--button-active-bg-color) !important;
-}
 
-.Button:focus {
-  background-color: var(--button-focus-bg-color);
-}
 
-.Wide {
-  padding: var(--wide-button-padding);
-  width: var(--wide-button-width);
-}
-
-.Blue,
-.BlueOutline:hover,
-.Bright:hover,
-.Black,
-.BlackOutline:hover {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-}
-
-.BlueOutline,
-.Blue:hover,
-.Black:hover,
-.BlackOutline {
-  background-color: var(--background-color);
-  color: var(--primary-color);
-}
-
-.Bright {
-  background-color: var(--icon-hover-color);
-  color: var(--primary-color);
-}
