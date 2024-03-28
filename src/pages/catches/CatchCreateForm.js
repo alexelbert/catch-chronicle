@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -9,12 +8,12 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
 import Asset from "../../components/Asset";
+import Button from "../../components/Button";
 
 import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/CatchCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -310,15 +309,8 @@ function CatchCreateForm() {
 
     
     
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
-      </Button>
+      <Button label="cancel" handleClick={() => history.goBack()} additionalClasses={`${styles.Button}`} />
+      <Button label="create" type="submit" additionalClasses={`${styles.Button}`} />
     </div>
   );
 
@@ -336,12 +328,11 @@ function CatchCreateForm() {
                     <Image className={appStyles.Image} src={image} rounded />
                   </figure>
                   <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
+                  <Button
+                    className={`${styles.Button}`}
+                    htmlFor="image-upload"
+                    label="Change the image"
+                  />
                   </div>
                 </>
               ) : (
