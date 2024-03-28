@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import Button from "../../components/Button";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -50,20 +51,19 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
-        <button
-          className={styles.Button}
-          onClick={() => setShowEditForm(false)}
+        <Button
+          label="Cancel"
+          handleClick={() => setShowEditForm(false)}
+          additionalClasses={styles.Button}
           type="button"
-        >
-          cancel
-        </button>
-        <button
-          className={styles.Button}
-          disabled={!content.trim()}
+        />
+        <Button
+          label="Save"
+          handleClick={handleSubmit}
+          additionalClasses={styles.Button}
+          disabled={!formContent.trim()}
           type="submit"
-        >
-          save
-        </button>
+        />
       </div>
     </Form>
   );

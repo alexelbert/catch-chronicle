@@ -23,7 +23,7 @@ import Catch from "../catches/Catch";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
-import FollowButton from "../../components/FollowButton";
+import Button from "../../components/Button";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -87,11 +87,10 @@ function ProfilePage() {
           {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           {currentUser &&
             !is_owner &&
-            <FollowButton
-              isFollowing={profile?.following_id}
-              handleFollow={handleFollow}
-              handleUnfollow={handleUnfollow}
-              profile={profile}
+            <Button
+              type="button"
+              label={profile?.following_id ? 'Unfollow' : 'Follow'}
+              handleClick={() => profile?.following_id ? handleUnfollow(profile) : handleFollow(profile)}
             />
           }
         </Col>
