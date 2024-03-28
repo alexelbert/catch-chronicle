@@ -46,8 +46,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <Row className={styles.Row}>
-      <Col className="my-auto py-2 p-md-2" md={6}>
+    <Row className={`d-flex justify-content-center align-items-center ${styles.Container}`}>
+      <Col md={{ span: 6 }}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
 
@@ -103,12 +103,14 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-            <Button
-              label="Sign up"
-              type="submit"
-              additionalClasses={`${styles.Button}`}
-              handleClick={handleSubmit}
-            />
+            <div className="text-center"> {/* Centering the button */}
+              <Button
+                label="Sign up"
+                type="submit"
+                additionalClasses={`${styles.Button}`}
+                handleClick={handleSubmit}
+              />
+            </div>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
@@ -122,12 +124,6 @@ const SignUpForm = () => {
             You already have an account? <span>Sign In</span>
           </Link>
         </Container>
-      </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-      >
-
       </Col>
     </Row>
   );
