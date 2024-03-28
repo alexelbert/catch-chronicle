@@ -203,6 +203,8 @@ function CatchCreateForm() {
             name="weight"
             value={weight}
             onChange={handleChange}
+            min="0"
+            step="0.01"
         />
       </Form.Group>
       {errors?.weight?.map((message, idx) => (
@@ -219,6 +221,8 @@ function CatchCreateForm() {
             name="length"
             value={length}
             onChange={handleChange}
+            min="0"
+            step="0.01"
         />
       </Form.Group>
       {errors?.length?.map((message, idx) => (
