@@ -297,18 +297,18 @@ function CatchEditForm() {
             onChange={handleChange}
         />
       </Form.Group>
-
+      <div>
       <Button
         label="cancel"
         type="button"
         handleClick={() => history.goBack()}
-        additionalClasses={`${styles.Button}`}
+        additionalClasses={buttonStyles.CancelButton}
       />
       <Button
         label="save"
         type="submit"
-        additionalClasses={`${styles.Button}`}
       />
+      </div>  
     </div>
   );
 

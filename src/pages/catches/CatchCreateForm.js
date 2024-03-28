@@ -310,8 +310,15 @@ function CatchCreateForm() {
 
     
     
-      <Button label="cancel" handleClick={() => history.goBack()} additionalClasses={`${styles.Button}`} />
-      <Button label="create" type="submit" additionalClasses={`${styles.Button}`} />
+      <Button 
+        label="cancel" 
+        handleClick={() => history.goBack()} 
+        additionalClasses={buttonStyles.CancelButton} 
+      />
+      <Button 
+        label="create" 
+        type="submit" 
+      />
     </div>
   );
 

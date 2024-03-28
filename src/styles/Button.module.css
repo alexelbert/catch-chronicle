@@ -18,8 +18,24 @@
   border: none;
 }
 
+.Button + .Button {
+  margin-left: 10px;
+}
+
+.CancelButton {
+  background-color: var(--secondary-color);
+}
+
+.CancelButton:hover, .CancelButton:focus {
+  background-color: var(--scrollbar-thumb-hover-color);
+}
+
 .Button:hover, .Button:focus {
   background-color: var(--dark-green);
+}
+
+.CancelButton:hover, .CancelButton:focus {
+  background-color: var(--secondary-color);
 }
 
 .Button:hover {

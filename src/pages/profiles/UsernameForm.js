@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import buttonStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -74,6 +75,7 @@ const UsernameForm = () => {
               label="Cancel"
               type="button"
               handleClick={() => history.goBack()}
+              additionalClasses={buttonStyles.CancelButton}
             />
             <Button
               label="Save"

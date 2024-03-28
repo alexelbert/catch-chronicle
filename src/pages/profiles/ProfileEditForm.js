@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import styles from "../../styles/Button.module.css";
+import buttonStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -153,6 +153,7 @@ const ProfileEditForm = () => {
       <Button
         label="Cancel"
         handleClick={() => history.goBack()}
+        additionalClasses={buttonStyles.CancelButton}
       />
       <Button
         label="Save"
@@ -179,7 +180,7 @@ const ProfileEditForm = () => {
               ))}
               <div>
                 <Form.Label
-                  className={`${styles.Button} Button`}
+                  className={`${buttonStyles.Button} Button`}
                   htmlFor="image-upload"
                 >
                   Change Image

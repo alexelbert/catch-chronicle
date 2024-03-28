@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import buttonStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -87,9 +88,10 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              label="Cancel"
+              label="cancel"
               type="button"
               handleClick={() => history.goBack()}
+              additionalClasses={buttonStyles.CancelButton}
             />
             <Button
               label="Save"
