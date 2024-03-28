@@ -1,68 +1,66 @@
 @import '../colours.css';
 
+:root {
+  --button-padding: 4px 10px;
+  --button-margin: 2px;
+  --button-min-width: 75px;
+  --button-border-radius: 100px;
+  --button-font-size: 0.8rem;
+  --button-align-self: center;
+  --button-border-color: transparent;
+  --button-hover-opacity: 0.8;
+  --button-active-bg-color: var(--primary-color);
+  --button-focus-bg-color: var(--primary-color);
+  --wide-button-padding: 10px 50px;
+  --wide-button-width: 100%;
+}
+
 .Button {
-  font-size: 0.8rem;
-  align-self: center;
-  border-radius: 100px;
-  border-color: transparent;
-  padding: 4px 10px;
-  margin-left: 2px;
-  margin-right: 2px;
-  min-width: 75px;
+  font-size: var(--button-font-size);
+  align-self: var(--button-align-self);
+  border-radius: var(--button-border-radius);
+  border-color: var(--button-border-color);
+  padding: var(--button-padding);
+  margin-left: var(--button-margin);
+  margin-right: var(--button-margin);
+  min-width: var(--button-min-width);
 }
 
 .Button:hover {
-  opacity: 0.8;
-  border-color: transparent;
+  opacity: var(--button-hover-opacity);
+  border-color: var(--button-border-color);
   cursor: pointer;
 }
 
-.Button:hover:active {
-  background-color: var(--primary-color) !important;
-}
-
+.Button:hover:active,
 .Button:active {
-  background-color: var(--primary-color) !important;
+  background-color: var(--button-active-bg-color) !important;
 }
 
 .Button:focus {
-  background-color: var(--primary-color);
+  background-color: var(--button-focus-bg-color);
 }
 
 .Wide {
-  padding: 10px 50px;
-  width: 100%;
+  padding: var(--wide-button-padding);
+  width: var(--wide-button-width);
 }
 
 .Blue,
 .BlueOutline:hover,
-.Bright:hover {
+.Bright:hover,
+.Black,
+.BlackOutline:hover {
   background-color: var(--primary-color);
   color: var(--background-color);
 }
 
 .BlueOutline,
-.Blue:hover {
-  /* border: 1px solid var(--primary-color); */
-  background-color: var(--background-color);
-  color: var(--primary-color);
-}
-
-.Black,
-.BlackOutline:hover {
-  /* background-color: var(--dark-green);
-  color: white; */
-  background-color: var(--primary-color);
-  color: aliceblue;
-}
-
+.Blue:hover,
 .Black:hover,
 .BlackOutline {
-  /* background-color: #dadadf;
-  color: var(--dark-green);
-  border-color: var(--dark-green); */
-  background-color: aliceblue;
-  color: var(--dark-green);
+  background-color: var(--background-color);
+  color: var(--primary-color);
 }
 
 .Bright {
