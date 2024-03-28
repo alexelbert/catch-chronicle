@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/Profile.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -37,14 +36,12 @@ const Profile = (props) => {
               label="Unfollow"
               type="button"
               handleClick={() => handleUnfollow(profile)}
-              additionalClasses={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
             />
           ) : (
             <Button
               label="Follow"
               type="button"
               handleClick={() => handleFollow(profile)}
-              additionalClasses={`${btnStyles.Button} ${btnStyles.Black}`}
             />
           ))}
       </div>

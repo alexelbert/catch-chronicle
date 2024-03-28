@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
+import Button from "../../components/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,7 +11,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UserPasswordForm = () => {
@@ -60,7 +59,7 @@ const UserPasswordForm = () => {
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control
-                placeholder="new password"
+                placeholder="New password"
                 type="password"
                 value={new_password1}
                 onChange={handleChange}
@@ -75,7 +74,7 @@ const UserPasswordForm = () => {
             <Form.Group>
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
-                placeholder="confirm new password"
+                placeholder="Confirm password"
                 type="password"
                 value={new_password2}
                 onChange={handleChange}
@@ -88,17 +87,14 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
-            >
-              Cancel
-            </Button>
+              label="Cancel"
+              type="button"
+              handleClick={() => history.goBack()}
+            />
             <Button
+              label="Save"
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            >
-              Save
-            </Button>
+            />
           </Form>
         </Container>
       </Col>

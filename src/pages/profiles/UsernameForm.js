@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
+import Button from "../../components/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -14,7 +14,6 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
-import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UsernameForm = () => {
@@ -72,17 +71,14 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
-            >
-              Cancel
-            </Button>
+              label="Cancel"
+              type="button"
+              handleClick={() => history.goBack()}
+            />
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              label="Save"
               type="submit"
-            >
-              Save
-            </Button>
+            />
           </Form>
         </Container>
       </Col>

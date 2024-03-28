@@ -9,6 +9,7 @@ import Image from "react-bootstrap/Image";
 
 import Asset from "../../components/Asset";
 import Button from "../../components/Button";
+import buttonStyles from "../../styles/Button.module.css";
 
 import Upload from "../../assets/upload.png";
 
@@ -328,11 +329,12 @@ function CatchCreateForm() {
                     <Image className={appStyles.Image} src={image} rounded />
                   </figure>
                   <div>
-                  <Button
-                    className={`${styles.Button}`}
-                    htmlFor="image-upload"
-                    label="Change the image"
-                  />
+                  <Form.Label
+                      className={`${buttonStyles.Button} Button`}
+                      htmlFor="image-upload"
+                    >
+                      Change the image
+                    </Form.Label>
                   </div>
                 </>
               ) : (

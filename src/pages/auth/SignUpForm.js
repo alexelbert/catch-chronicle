@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import Button from "../../components/Button";
 import appStyles from "../../App.module.css";
 
 import {
   Form,
-  Button,
   Col,
   Row,
   Container,
@@ -105,11 +104,11 @@ const SignUpForm = () => {
             ))}
 
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              label="Sign up"
               type="submit"
-            >
-              Sign up
-            </Button>
+              additionalClasses={`${styles.Button}`}
+              handleClick={handleSubmit}
+            />
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}

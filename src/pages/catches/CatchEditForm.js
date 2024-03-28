@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Button from "../../components/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
+import buttonStyles from "../../styles/Button.module.css";
 
 import styles from "../../styles/CatchCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -191,6 +191,8 @@ function CatchEditForm() {
         <Form.Control
             type="number"
             name="weight"
+            min="0"
+            step="0.01"
             value={weight}
             onChange={handleChange}
         />
@@ -207,6 +209,8 @@ function CatchEditForm() {
         <Form.Control
             type="number"
             name="length"
+            min="0"
+            step="0.01"
             value={length}
             onChange={handleChange}
         />
@@ -295,14 +299,16 @@ function CatchEditForm() {
       </Form.Group>
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
-      </Button>
+        label="cancel"
+        type="button"
+        handleClick={() => history.goBack()}
+        additionalClasses={`${styles.Button}`}
+      />
+      <Button
+        label="save"
+        type="submit"
+        additionalClasses={`${styles.Button}`}
+      />
     </div>
   );
 
@@ -322,8 +328,8 @@ function CatchEditForm() {
                     />
                   </figure>
                   <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  <Form.Label
+                      className={`${buttonStyles.Button} Button`}
                       htmlFor="image-upload"
                     >
                       Change the image
