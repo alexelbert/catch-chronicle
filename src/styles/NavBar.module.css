@@ -5,23 +5,34 @@
   border: 1px solid var(--border-color);
 }
 
+
 .ButtonLink {
-  margin-right: 10px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center; 
-  border: 1px solid var(--border-color); 
-  border-radius: 4px; 
-  background-color: var(--icon-color);
-  color: var(--text-color); 
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  border: none;
+}
+
+
+.ButtonLink:hover, .ButtonLink:focus {
+  color: var(--background-color);
+  background-color: var(--dark-green);
   text-decoration: none; 
-  transition: background-color 0.3s ease; 
 }
 
 .ButtonLink:hover {
-  background-color: var(--icon-hover-color);
-  color: var(--hover-text-color);
+  transform: scale(1.2);
 }
+
 
 .NavLink {
   margin-right: 10px;
