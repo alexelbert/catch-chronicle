@@ -16,6 +16,17 @@ export const fetchMoreData = async (resource, setResource) => {
   } catch (err) {}
 };
 
+export const fetchNotifications = async () => {
+  try {
+    const response = await axiosReq.get("https://catch-chronicle-api-d205d9d4b14c.herokuapp.com/notifications/");
+    
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching notifications:", error);
+    throw error;
+  }
+};
+
 export const followHelper = (profile, clickedProfile, following_id) => {
   return profile.id === clickedProfile.id
     ? 
