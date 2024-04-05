@@ -8,6 +8,8 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import NotificationsComponent from "./NotificationsComponent";
+
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -75,6 +77,7 @@ const NavBar = () => {
       >
         <Avatar src={currentUser?.profile_picture} height={40} />
       </NavLink>
+      <NotificationsComponent />
     </>
   );
   
