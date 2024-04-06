@@ -29,14 +29,17 @@ const NavBar = () => {
 
 
   const addCatchIcon = (
-    <NavLink 
-      exact
-      className={` ${styles.ButtonLink}`}
-      activeClassName={styles.Active}
-      to="/catches/create" 
-    >
-      Add Catch
-    </NavLink>
+    <>
+      <NavLink 
+        exact
+        className={` ${styles.ButtonLink}`}
+        activeClassName={styles.Active}
+        to="/catches/create" 
+      >
+        Add Catch
+      </NavLink>
+      < NotificationsComponent />
+    </>
   );
   
   const loggedInIcons = (
@@ -77,7 +80,6 @@ const NavBar = () => {
       >
         <Avatar src={currentUser?.profile_picture} height={40} />
       </NavLink>
-      <NotificationsComponent />
     </>
   );
   
