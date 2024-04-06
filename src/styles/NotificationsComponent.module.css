@@ -1,27 +1,30 @@
+@import '../colours.css';
+
 .bellIcon {
   background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.dropdown {
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.notificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
-.boxStyle {
-    position: relative;
-    bottom: 20px; 
-    right: 20px; 
-    width: 100%; 
-    max-height: 400px; 
-    overflow-y: auto; 
-    background: white; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 10px;
-    border-radius: 5px; 
-    z-index: 1000; 
+.notificationItem:hover {
+  background-color: #f0f0f0; /* Change to your preferred hover color */
 }
+
+ .removeButton  {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--red); /* Feel free to adjust the color to match your design */
+  padding: 0 5px; /* Adds some padding for easier clicking */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+

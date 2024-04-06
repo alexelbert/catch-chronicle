@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { fetchNotifications } from '../utils/utils';
-import Asset from '../components/Asset';
+import { Modal, Button } from 'react-bootstrap';
 import styles from '../styles/NotificationsComponent.module.css';
+import { axiosReq } from '../api/axiosDefaults';
+import Asset from './Asset';
+
 
 const NotificationsComponent = () => {
   const [notifications, setNotifications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     const getAndSetNotifications = async () => {
@@ -24,34 +27,61 @@ const NotificationsComponent = () => {
     getAndSetNotifications();
   }, []);
 
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
+  const removeNotification = async (id) => {
+    try {
+      // Use axiosReq to inherit the configured interceptors
+      await axiosReq.delete(`/notifications/${id}/`);
+      setNotifications((currentNotifications) => 
+        currentNotifications.filter(notification => notification.id !== id)
+      );
+    } catch (error) {
+      console.error('Failed to delete the notification:', error);
+    }
   };
+  
+
+  const BellIcon = () => (
+    <button onClick={() => setModalShow(true)} className={styles.bellIcon}>
+      <i className="fa-regular fa-bell"></i>
+    </button>
+  );
 
   return (
-    <div>
-      <button onClick={toggleDropdown} className={styles.bellIcon}>
-        <i className="fa-regular fa-bell"></i>
-      </button>
-      {dropdownVisible && (
-        <div className={styles.dropdown}>
-          <h2>Notifications</h2>
+    <>
+      <BellIcon />
+      <Modal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Notifications
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           {isLoading ? (
-            <Asset spinner />
+            < Asset />
           ) : notifications.length ? (
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              {notifications.map((notification) => (
-                <li key={notification.id}>
-                  <p>{notification.notification_text} - {new Date(notification.created_at).toLocaleDateString()}</p>
-                </li>
-              ))}
-            </ul>
+            notifications.map((notification) => (
+              <div key={notification.id} className={styles.notificationItem}>
+                {notification.notification_text} - {new Date(notification.created_at).toLocaleDateString()}
+                <span onClick={() => removeNotification(notification.id)} className={styles.removeButton}>
+                X
+                </span>
+              </div>
+            ))
           ) : (
-            <p>No notifications to display.</p>
+            <p>No notifications</p>
           )}
-        </div>
-      )}
-    </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setModalShow(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
