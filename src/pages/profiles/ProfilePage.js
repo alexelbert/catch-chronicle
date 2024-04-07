@@ -98,14 +98,15 @@ function ProfilePage() {
   
       {/* Display Name and Location */}
       <Row className="px-3 text-center">
-        {profile?.name && <Col className="p-3">{profile.name}</Col>}
-        {profile?.location && <Col className="p-3">{profile.location}</Col>}
+        {profile?.name && <Col className="p-3"><div className={styles.profileText}>{profile.name}</div></Col>}
+        {profile?.location && <Col className="p-3"><div className={styles.profileText}>{profile.location}</div></Col>}
       </Row>
   
       {/* Display Bio and URLs */}
       <Row className="px-3 text-center">
         <Col xs={12} className="p-3">
-          {profile?.bio && <div>{profile.bio}</div>}
+        {profile?.bio && <div className={styles.profileBio}>{profile.bio}</div>}
+
           <div className="urls">
             {profile?.facebook_url && (
               <a href={profile.facebook_url} target="_blank" rel="noopener noreferrer">
