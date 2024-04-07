@@ -29,10 +29,9 @@ const NotificationsComponent = () => {
 
   const removeNotification = async (id) => {
     try {
-      // Use axiosReq to inherit the configured interceptors
-      await axiosReq.delete(`/notifications/${id}/`);
-      setNotifications((currentNotifications) => 
-        currentNotifications.filter(notification => notification.id !== id)
+      await axiosReq.delete(`/notifications/${id}`);
+      setNotifications(prevNotifications => 
+        prevNotifications.filter(notification => notification.id !== id)
       );
     } catch (error) {
       console.error('Failed to delete the notification:', error);
