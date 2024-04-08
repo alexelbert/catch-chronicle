@@ -27,7 +27,7 @@ function MyCatchesChart({ myCatches }) {
 
   useEffect(() => {
     const countsByMonth = myCatches.reduce((acc, { created_at }) => {
-      const month = new Date(created_at).toLocaleString('default', { month: 'long', year: 'numeric' });
+      const month = new Date(created_at).toLocaleString('default', { month: 'short', year: 'numeric' });
       acc[month] = (acc[month] || 0) + 1;
       return acc;
     }, {});
@@ -45,10 +45,28 @@ function MyCatchesChart({ myCatches }) {
         },
       ],
     }));
-  // Remove `chartData.datasets` from the dependency array to avoid warning
-  }, [myCatches]); // Assuming myCatches is stable, doesn't change identity on each render
+  }, [myCatches]);
 
-  return <Line data={chartData} />;
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          // Display only ints on the y-axis
+          stepSize: 1,
+          precision: 0,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        align: 'start',
+      },
+    },
+  };
+
+  return <Line data={chartData} options={options} />;
 }
 
 export default MyCatchesChart;
