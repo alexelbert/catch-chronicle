@@ -22,9 +22,27 @@
   
   /* Alternate row color */
   .table tbody tr:nth-child(even) {
-    background-color: var(--icon-color); /* Light gray color, you can change this to any color you prefer */
+    background-color: var(--icon-color);
   }
   
+.chartTitle,
+.tableTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-top: 30px;
+}
+
+.chartDescription,
+.tableDescription {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.buttonGroup {
+  margin-bottom: 20px;
+}
+
 
   /* Responsive */
 
