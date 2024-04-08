@@ -1,30 +1,64 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Table } from "react-bootstrap";
+import { Table, ButtonGroup, Button } from "react-bootstrap";
 import styles from "../../styles/MyCatchesPage.module.css";
+import MyCatchesChart from "../../components/MyCatchesChart";
 
 function MyCatchesPage() {
   const [myCatches, setMyCatches] = useState([]);
+  const [years, setYears] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   const currentUser = useCurrentUser();
-  
+
   useEffect(() => {
     const fetchMyCatches = async () => {
-      try {
-        if(currentUser && currentUser.profile_id) { // Checking if currentUser and profile_id are not null or undefined
-          const response = await axiosReq.get(`/catches/?owner__profile=${currentUser.profile_id}`);
-          setMyCatches(response.data.results);
+      if (currentUser && currentUser.profile_id) {
+        let allCatches = [];
+        let hasNextPage = true;
+        let currentPage = 1;
+
+        try {
+          while (hasNextPage) {
+            const response = await axiosReq.get(`/catches/?owner__profile=${currentUser.profile_id}&page=${currentPage}`);
+            allCatches = [...allCatches, ...response.data.results];
+            hasNextPage = response.data.next !== null;
+            currentPage++;
+          }
+
+          setMyCatches(allCatches);
+
+          // Process to extract unique years from the fetched catches
+          const uniqueYears = Array.from(new Set(allCatches.map(item => new Date(item.created_at).getFullYear()))).sort((a, b) => b - a);
+          setYears(uniqueYears);
+          if (uniqueYears.length > 0) {
+            setSelectedYear(uniqueYears[0]); // Default to the most recent year
+          }
+        } catch (error) {
+          console.error("Error fetching catches:", error);
         }
-      } catch (error) {
-        console.error("Error fetching catches:", error);
       }
     };
+
     fetchMyCatches();
   }, [currentUser]);
-  
+
+  // Filter catches by selected year
+  const catchesForSelectedYear = myCatches.filter(catchItem => new Date(catchItem.created_at).getFullYear() === selectedYear);
+
   return (
     <div>
       <h1>My Catches</h1>
+      <div className="year-selection">
+        <ButtonGroup>
+          {years.map(year => (
+            <Button key={year} variant="secondary" active={selectedYear === year} onClick={() => setSelectedYear(year)}>
+              {year}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </div>
+      <MyCatchesChart myCatches={catchesForSelectedYear} />
       <Table striped bordered hover className={styles.table}>
         <thead>
           <tr>
