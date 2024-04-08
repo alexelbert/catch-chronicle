@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Table, ButtonGroup, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import styles from "../../styles/MyCatchesPage.module.css";
 import MyCatchesChart from "../../components/MyCatchesChart";
+import Button from "../../components/Button";
 
 function MyCatchesPage() {
   const [myCatches, setMyCatches] = useState([]);
@@ -48,49 +49,61 @@ function MyCatchesPage() {
 
   return (
     <div>
-      <h1>My Catches</h1>
-      <div className="year-selection">
-        <ButtonGroup>
+      <div className={styles.chartContainer}>
+        <div className={styles.chartTitle}>Your Catches Over Time</div>
+        <div className={styles.chartDescription}>
+          This chart displays the number of catches recorded per month, allowing you to visualize trends over time.
+        </div>
+        <div className={styles.buttonGroup}>
           {years.map(year => (
-            <Button key={year} variant="secondary" active={selectedYear === year} onClick={() => setSelectedYear(year)}>
-              {year}
-            </Button>
+            <Button
+              key={year}
+              label={year}
+              additionalClasses={selectedYear === year ? styles.activeButton : ""}
+              handleClick={() => setSelectedYear(year)}
+            />
           ))}
-        </ButtonGroup>
+        </div>
+        <MyCatchesChart myCatches={catchesForSelectedYear} />
       </div>
-      <MyCatchesChart myCatches={catchesForSelectedYear} />
-      <Table striped bordered hover className={styles.table}>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Species</th>
-            <th>Method</th>
-            <th>Weight</th>
-            <th>Length</th>
-            <th>Time</th>
-            <th>Weather</th>
-            <th>Lure</th>
-          </tr>
-        </thead>
-        <tbody>
-          {myCatches.map((catchItem, index) => (
-          <tr key={catchItem.id}>
-            <td data-label="#">{index + 1}</td>
-            <td data-label="Date">{catchItem.created_at}</td>
-            <td data-label="Location">{catchItem.location}</td>
-            <td data-label="Species">{catchItem.species}</td>
-            <td data-label="Method">{catchItem.method}</td>
-            <td data-label="Weight">{catchItem.weight}</td>
-            <td data-label="Length">{catchItem.length}</td>
-            <td data-label="Time">{catchItem.time}</td>
-            <td data-label="Weather">{catchItem.weather}</td>
-            <td data-label="Lure">{catchItem.lure}</td>
-          </tr>
-          ))}
-        </tbody>
-      </Table>
+      <div>
+        <div className={styles.tableTitle}>Catches Details</div>
+        <div className={styles.tableDescription}>
+          Below is a detailed table of your catches, including date, location, species, and more.
+        </div>
+        <Table striped bordered hover className={styles.table}>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Species</th>
+              <th>Method</th>
+              <th>Weight</th>
+              <th>Length</th>
+              <th>Time</th>
+              <th>Weather</th>
+              <th>Lure</th>
+            </tr>
+          </thead>
+          <tbody>
+            {myCatches.map((catchItem, index) => (
+            <tr key={catchItem.id}>
+              <td data-label="#">{index + 1}</td>
+              <td data-label="Date">{catchItem.created_at}</td>
+              <td data-label="Location">{catchItem.location}</td>
+              <td data-label="Species">{catchItem.species}</td>
+              <td data-label="Method">{catchItem.method}</td>
+              <td data-label="Weight">{catchItem.weight}</td>
+              <td data-label="Length">{catchItem.length}</td>
+              <td data-label="Time">{catchItem.time}</td>
+              <td data-label="Weather">{catchItem.weather}</td>
+              <td data-label="Lure">{catchItem.lure}</td>
+            </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }
