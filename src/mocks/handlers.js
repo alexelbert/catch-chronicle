@@ -3,21 +3,43 @@ import { rest } from "msw";
 const baseURL = "https://catch-chronicle-api-d205d9d4b14c.herokuapp.com/";
 
 export const handlers = [
-  rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => {
-    return res(
-      ctx.json({
+  rest.post(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => {
+    return res(ctx.json(
+      {
         "pk": 1,
         "username": "alex",
         "email": "",
         "first_name": "",
         "last_name": "",
         "profile_id": 1,
-        "profile_picture": "https://res.cloudinary.com/dfqbtlccb/image/upload/v1/media/../default_profile_zsweuz"
-      })
-    );
+        "profile_picture": "https://res.cloudinary.com/dfqbtlccb/image/upload/v1/media/images/default_xriyar"
+      }
+    ));
   }),
   rest.post(`${baseURL}dj-rest-auth/logout/`, (req, res, ctx) => {
     return res(ctx.status(200));
+  }),
+  rest.get(`${baseURL}/profiles/3`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        "id": 3,
+        "owner": "testuser3",
+        "is_owner": true,
+        "following_id": null,
+        "created_at": "05 Apr 2024",
+        "updated_at": "05 Apr 2024",
+        "catches_count": 0,
+        "name": "",
+        "bio": "",
+        "location": "",
+        "profile_picture": "https://res.cloudinary.com/dfqbtlccb/image/upload/v1/media/../default_profile_zsweuz",
+        "facebook_url": "",
+        "twitter_url": "",
+        "instagram_url": "",
+        "following_count": 1,
+        "followers_count": 0
+    })
+    );
   }),
   rest.post(`${baseURL}dj-rest-auth/token/refresh/`, (req, res, ctx) => {
     return res(
@@ -86,7 +108,6 @@ export const handlers = [
       })
     );
   }),
-
   rest.get(`${baseURL}profiles/`, (req, res, ctx) => {
     return res(
       ctx.json({
