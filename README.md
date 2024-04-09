@@ -3,7 +3,7 @@
 **Catch Chronicle** is a social media app dedicated to logging and sharing catches.
 
 
-Simple joy of catching moments often goes overlooked, unless it's something extraordinary. **Catch Chronicle** urges you to embrace those everyday catches and celebrate the moments that matter with others.
+Simple joy of fishing moments often goes overlooked, unless it's something extraordinary. **Catch Chronicle** urges you to embrace those everyday catches and celebrate the moments that matter with others.
 Whether you're reeling in a big fish on a serene lake or capturing the laughter of your loved ones during a family gathering, log your catches and share these cherished memories with your fellow anglers and friends.
 
 ![Am I Responsive?](/docs/screenshots/am-i-responsive-catch-chronicle.png)
@@ -16,10 +16,46 @@ Whether you're reeling in a big fish on a serene lake or capturing the laughter 
 - **Log Catches with Geolocation**: Share your catches and location data.
 - **Search for Catches**: Find catches by title or user.
 - **User Interactions**: Like and comment on catches, follow users you like.
+- **Notifications**: Get notifications when other users like your catch, follow you or comment on one of your catches. 
 
 <hr>
 
 Deployed application can be found here: [Catch Chronicle](https://catch-chronicle-61d760d135f4.herokuapp.com)
+
+# Table of Contents
+- [Catch Chronicle: Fish, Share and Connect 🎣](#catch-chronicle-fish-share-and-connect-)
+- [Table of Contents](#table-of-contents)
+  - [Project Goals](#project-goals)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+      - [User Authentication](#user-authentication)
+      - [User Profiles](#user-profiles)
+      - [Add Catch](#add-catch)
+      - [Editing and Deleting Catches](#editing-and-deleting-catches)
+      - [Comments and Likes](#comments-and-likes)
+      - [My Catches](#my-catches)
+      - [Reusable Components](#reusable-components)
+      - [Future Features](#future-features)
+  - [Design](#design)
+    - [Strategy Plane](#strategy-plane)
+    - [Scope Plane](#scope-plane)
+    - [Structure Plane](#structure-plane)
+    - [Skeleton Plane](#skeleton-plane)
+    - [Surface Plane](#surface-plane)
+      - [Logo](#logo)
+      - [Colours](#colours)
+      - [Fonts](#fonts)
+  - [Technologies Used](#technologies-used)
+    - [Frameworks and Languages](#frameworks-and-languages)
+    - [Additional JavaScript and React Libraries](#additional-javascript-and-react-libraries)
+    - [Other Software](#other-software)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+
+
+## Project Goals
+
+The goal of this project was to build a social media platform in which fishing enthusiast users can log and post their own catches and see other users catches.  
 
 ## Features
 
@@ -61,7 +97,7 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 
 ![Screen for add catch](/docs/screenshots/add-catch-page.png)
 
-#### Editing and Deleting Sounds
+#### Editing and Deleting Catches
 
 - Users can edit and delete their catches by clicking on the dropdown menu indicated by three dots on the catch detail page.
 
@@ -83,11 +119,17 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 ![My Catches](/docs/screenshots/my-catches-page.png)
 
 #### Reusable Components
-- Asset component that's function is an asset e.g image along with optional features like a loading spinner.
-- Avatar component displaying a avatar image along with text that is optional, can also customize source and height.
-- MoreDropdown component used for creating different dropdown menus, both profile related and generic use for editing e.g.
-- NavBar component that is reusable with a user friendly interface that includes conditional rendering depending on the users authentication status.
-- NotFound component, renders not found message when user tries and access page that does not exist.
+- **Asset** component that's function is an asset e.g image along with optional features like a loading spinner.
+- **Avatar** component displaying a avatar image along with text that is optional, can also customize source and height.
+- **MoreDropdown** component used for creating different dropdown menus, both profile related and generic use for editing e.g.
+- **NavBar** component that is reusable with a user friendly interface that includes conditional rendering depending on the users authentication status.
+- **NotFound** component, renders not found message when user tries and access page that does not exist.
+- **Button** component used for buttons across the website with a cohering styling and adaptable usage.
+- **MyCatchesChart** component  displays a line chart showing the number of catches a user has made each month. It takes a list of catches (myCatches) as a prop, which includes dates when each catch was made. When the component mounts or updates, it calculates how many catches were made in each month and then updates the chart data to display this. This component uses useState for managing chart data and useEffect for recalculating this data whenever the list of catches changes, ensuring the chart always reflects the latest information.
+- **NotificationsComponent** is designed to handle user notifications in an interactive and user-friendly manner. Upon mounting, it initiates a process to fetch notifications for the user, displaying a loading state until the notifications are retrieved successfully. The central feature of this component is a bell icon that, when clicked, reveals a modal window. This modal displays all the notifications that have been fetched. Each notification is presented with its content and creation time, and users have the option to remove any notification directly from this interface.
+
+The component have a dynamic notification count indicator: a small dot appears on the bell icon if there are unread notifications, providing a visual cue to the user that there are new notifications. The process of fetching and displaying notifications is managed through asynchronous operations, making sure that the user interface remains responsive and up to date. In case there are no notifications, the component informs the user that there are no new notifications.
+
 
 
 #### Future Features
@@ -173,6 +215,7 @@ The application is built with [React](https://reactjs.org/), which is a frontend
 - [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) for infinite scroll.
 - [JWT Decode](https://www.npmjs.com/package/jwt-decode) for JSON Web Tokens.
 - [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for automated testing.
+- [Chart.js](https://www.chartjs.org/docs/latest/charts/line.html) for creating charts displaying a users monthly catches.
 
 All used third party libraries contribute important features to the application. Axios stand out in particular for their essential role in the project: Axios for providing the connection between the frontend and the backend part of the project.
 
@@ -184,6 +227,8 @@ All used third party libraries contribute important features to the application.
 - [Am I Responsive?](https://ui.dev/amiresponsive?url=https://catch-chronicle-61d760d135f4.herokuapp.com) was used to generate responsive images of website.
 - [Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/) was used for performance test of deployed website.
 - [Figma](https://www.figma.com) was used for making wireframes.
+- [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) used to determine users location when adding a new catch to autofill latitude and longitude fields.
+- [LocationIQ](https://locationiq.com) used for fetching users location based of geolocation data (latitude and longitude).
 
 
 ## Testing
@@ -241,3 +286,6 @@ Please follow these steps for deployment of the application:
 
     If everything went ok, you should see the *Catch Chronicle* landing page.
 
+
+
+[def]: #catch-chronicle-fish-share-and-connect-
