@@ -32,7 +32,7 @@ function CatchesPage({message, filter = ""}) {
             setCatches(data);
             setHasLoaded(true);
           } catch (err) {
-            //console.log(err);
+            
           }
         };
     

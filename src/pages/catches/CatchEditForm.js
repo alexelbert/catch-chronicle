@@ -73,7 +73,7 @@ function CatchEditForm() {
 
         is_owner ? setPostData({ caption, species, method, weight, length, location, latitude, longitude, time, weather, lure, image }) : history.push("/");
       } catch (err) {
-        //console.log(err);
+        
       }
     };
 
@@ -121,7 +121,7 @@ function CatchEditForm() {
       await axiosReq.put(`/catches/${id}/`, formData);
       history.push(`/catches/${id}`);
     } catch (err) {
-      //console.log(err);
+      
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

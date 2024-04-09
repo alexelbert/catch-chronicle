@@ -50,7 +50,7 @@ function ProfilePage() {
         setProfileCatches(profileCatches);
         setHasLoaded(true);
       } catch (err) {
-        //console.log(err);
+        
       }
     };
     fetchData();

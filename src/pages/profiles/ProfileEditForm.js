@@ -47,7 +47,7 @@ const ProfileEditForm = () => {
           const { name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url } = data;
           setProfileData({ name, bio, location, profile_picture, facebook_url, twitter_url, instagram_url });
         } catch (err) {
-          //console.log(err);
+          
           history.push("/");
         }
       } else {
@@ -87,7 +87,7 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      //console.log(err);
+      
       setErrors(err.response?.data);
     }
   };
