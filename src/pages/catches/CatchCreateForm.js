@@ -24,11 +24,10 @@ import axios from 'axios';
 
 async function getAddressFromCoords(lat, lng) {
   try {
-    const response = await axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lng}&format=json`);
-    return response.data.place_id;
+    const response = await axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lng}&format=json`, { withCredentials: false });
+    return response.data.address.town;
   } catch (error) {
-    console.error(error);
-    return 'test';
+    return '';
   }
 }
 
