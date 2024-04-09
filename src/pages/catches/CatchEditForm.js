@@ -18,18 +18,18 @@ import { axiosReq } from "../../api/axiosDefaults";
 function CatchEditForm() {
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
-    caption: "",
-    species: "",
-    method: "",
-    weight: "",
-    length: "",
-    location: "",
-    latitude: null,
-    longitude: null,
-    time: "",
-    weather: "",
-    lure: "",
-    image: "",
+    caption: '',
+    species: '',
+    method: '',
+    weight: '',
+    length: '',
+    location: '',
+    latitude: '',
+    longitude: '',
+    time: '',
+    weather: '',
+    lure: '',
+    image: '',
   });
 
   const {
