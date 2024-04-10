@@ -6,7 +6,7 @@
 Simple joy of fishing moments often goes overlooked, unless it's something extraordinary. **Catch Chronicle** urges you to embrace those everyday catches and celebrate the moments that matter with others.
 Whether you're reeling in a big fish on a serene lake or capturing the laughter of your loved ones during a family gathering, log your catches and share these cherished memories with your fellow anglers and friends.
 
-![Am I Responsive?](/docs/screenshots/am-i-responsive-catch-chronicle.png)
+![Am I Responsive?](/docs/screenshots/amiresponsive.png)
 
 <hr>
 
@@ -45,6 +45,9 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
       - [Logo](#logo)
       - [Colours](#colours)
       - [Fonts](#fonts)
+  - [Agile Methodology](#agile-methodology)
+    - [GitHub Issues and Projects as Tools for Agile](#github-issues-and-projects-as-tools-for-agile)
+    - [User Stories](#user-stories)
   - [Technologies Used](#technologies-used)
     - [Frameworks and Languages](#frameworks-and-languages)
     - [Additional JavaScript and React Libraries](#additional-javascript-and-react-libraries)
@@ -55,7 +58,7 @@ Deployed application can be found here: [Catch Chronicle](https://catch-chronicl
 
 ## Project Goals
 
-The goal of this project was to build a social media platform in which fishing enthusiast users can log and post their own catches and see other users catches.  
+The goal of this project was to build a social media platform in which fishing enthusiast users can log and post their own catches and see other users catches. Interact with other users by following them, liking and commenting on other users catches. Users can have all their catches displayed on their catch page with graphs displaying useful information so that it's not only for logging but users can actually draw some conclusions from their fishing.  
 
 ## Features
 
@@ -66,6 +69,7 @@ The goal of this project was to build a social media platform in which fishing e
 - **Catches list view with infinite scroll**: Users can see lists of catches (all catches, catches by followed users, liked catches). For better performance and user experience, the lists are paginated, and additional catches are loaded as the user scrolls towards the bottom of the page.
 - **Catches search**: Users can search for catches by title or user.
 - **User interactions**: Users can like and comment on catches and follow other users.
+- **My Catches page**: Users can see a table of all their added catches, chart graph at the top displaying catches by month yearly.
 
 
 #### User Authentication
@@ -136,7 +140,7 @@ The component have a dynamic notification count indicator: a small dot appears o
 
 The following features has not been included in the current scope of the project but would like to add in the future:
 - Implement weather details fetched from location and added on to catch data.
-- Add on capability for generating detailed graphs/diagram to be able to draw some conclusions of their fishing results.
+- Implement more scientific approach to the logging of catches for users to be able to make better adjustment for improved fishing/trends in their angling.
 
 ## Design
 
@@ -199,7 +203,51 @@ I chose Open Sans as the main font for the application for its clean look and go
 To differentiate the application name from the rest I chose to use Patua One slab serif text type that works well use din small sizes and has a chunky and friendly appearance. 
 
 
-<hr>
+## Agile Methodology
+
+### GitHub Issues and Projects as Tools for Agile
+
+[GitHub Issues](https://docs.github.com/en/issues) and [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) were used as tools for working with Agile methodology.
+
+- Used [**Issues**](https://github.com/alexelbert/catch-chronicle/issues?q=is%3Aissue+is%3Aclosed) to define user stories and created Assessment Criteria and Tasks for the user stories.
+- Categorized all user stories by **[Epics](https://github.com/alexelbert/catch-chronicle/labels?q=EPIC)** and used labels to mark user stories accordingly.
+- User stories were prioritized using the MoSCoW prioritization technique with the following project-wide **[Priorities](https://github.com/alexelbert/catch-chronicle/labels?q=Have)**.
+- Used **[Milestones](https://github.com/alexelbert/catch-chronicle/milestones)** adding user stories to three sprints.
+  
+### User Stories
+
+- [USER STORY: Authentication - Sign in](https://github.com/alexelbert/catch-chronicle/issues/4)
+- [USER STORY: Authentication - Sign up](https://github.com/alexelbert/catch-chronicle/issues/3)
+- [USER STORY: Navigation](https://github.com/alexelbert/catch-chronicle/issues/1)
+- [USER STORY: Popular profiles](https://github.com/alexelbert/catch-chronicle/issues/25)
+- [USER STORY: Profile page](https://github.com/alexelbert/catch-chronicle/issues/24)
+- [USER STORY: Edit a comment](https://github.com/alexelbert/catch-chronicle/issues/23)
+- [USER STORY: Delete comments](https://github.com/alexelbert/catch-chronicle/issues/22)
+- [USER STORY: View comments](https://github.com/alexelbert/catch-chronicle/issues/21)
+- [USER STORY: Comment date](https://github.com/alexelbert/catch-chronicle/issues/20)
+- [USER STORY: Create a comment](https://github.com/alexelbert/catch-chronicle/issues/19)
+- [USER STORY: Edit catch](https://github.com/alexelbert/catch-chronicle/issues/18)
+- [USER STORY: Catch page](https://github.com/alexelbert/catch-chronicle/issues/17)
+- [USER STORY: Infinite scroll](https://github.com/alexelbert/catch-chronicle/issues/16)
+- [USER STORY: View catches of followed users](https://github.com/alexelbert/catch-chronicle/issues/15)
+- [USER STORY: View liked catches](https://github.com/alexelbert/catch-chronicle/issues/14)
+- [USER STORY: Search function](https://github.com/alexelbert/catch-chronicle/issues/13)
+- [USER STORY: View the most recent catches](https://github.com/alexelbert/catch-chronicle/issues/12)
+- [USER STORY: Like a catch](https://github.com/alexelbert/catch-chronicle/issues/11)
+- [USER STORY: View a catch](https://github.com/alexelbert/catch-chronicle/issues/10)
+- [USER STORY: Create catches](https://github.com/alexelbert/catch-chronicle/issues/9)
+- [USER STORY: Avatar](https://github.com/alexelbert/catch-chronicle/issues/8)
+- [USER STORY: Navigation: Conditional rendering](https://github.com/alexelbert/catch-chronicle/issues/7)
+- [USER STORY: Authentication - Refreshing access tokens](https://github.com/alexelbert/catch-chronicle/issues/6)
+- [USER STORY: Authentication - Logged in Status](https://github.com/alexelbert/catch-chronicle/issues/5)
+- [USER STORY: Follow/Unfollow a user](https://github.com/alexelbert/catch-chronicle/issues/27)
+- [USER STORY: View all posts by a specific user](https://github.com/alexelbert/catch-chronicle/issues/28)
+- [USER STORY: Edit profile](https://github.com/alexelbert/catch-chronicle/issues/29)
+- [USER STORY: My catches page](https://github.com/alexelbert/catch-chronicle/issues/35)
+- [USER STORY: Display graph of catches over time](https://github.com/alexelbert/catch-chronicle/issues/36)
+- [USER STORY: Update username and password](https://github.com/alexelbert/catch-chronicle/issues/30)
+
+    
 
 ## Technologies Used
 
