@@ -570,6 +570,433 @@ Result: Passed ✅ | Completed in [Sprint 1](https://github.com/alexelbert/catch
 
 <hr>
 
+Test for [Test for User story #1](https://github.com/alexelbert/catch-chronicle/issues/1)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can view a navbar from every page so that I can navigate easily between pages
+
+  **Test Steps:**
+  - Navigation bar should display at all times
+  - Navigation within the navigation bar is consistent across different views and screen sizes
+  - By clicking either feed or the website icon users can get back to the main page
+  
+  **Expected Results:**
+  - User can navigate between different sections or pages of the application.
+  - Navigation elements are consistent across all pages.
+  - Navigation is intuitive and user-friendly.
+  - User can easily return to the homepage or main dashboard from any page.
+  - Navigation menus or buttons are accessible and responsive across various devices.
+  
+  **Screenshots**
+    
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing2.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing3.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing4.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing5.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing6.png)
+
+  <hr>
+  
+  ![Navigation Bar Result](/docs/screenshots/navbarshowing7.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #30](https://github.com/alexelbert/catch-chronicle/issues/30)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a logged in user I can update my username and password so that I can change my username and keep my profile secure
+
+  **Test Steps:**
+  - Navigate to profile page and press the gear icon followed by change username
+  - Enter your new username then press save
+  - If available username will be updated
+  
+  **Expected Results:**
+  - User can navigate to the profile settings page.
+  - User can input a new username and password.
+  - Upon submission, the system updates the user's username and/or password.
+  
+  **Screenshots**
+    
+  ![Change Username Result](/docs/screenshots/changeusername.png)
+
+  <hr>
+  
+  ![Change Username Result](/docs/screenshots/changeusername2.png)
+
+  <hr>
+  
+  ![Change Username Result](/docs/screenshots/changeusername3.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #30](https://github.com/alexelbert/catch-chronicle/issues/30)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a logged in user I can update my username and password so that I can change my username and keep my profile secure
+
+  **Test Steps:**
+  - Navigate to profile page and press the gear icon followed by change username
+  - Enter your new username then press save
+  - If available username will be updated
+  - If user want to change password select change password instead
+  - Enter new password and confirm it 
+  - If password is valid when pressing save it's updated
+  
+  **Expected Results:**
+  - User can navigate to the profile settings page.
+  - User can input a new username and password.
+  - Upon submission, the system updates the user's username and/or password.
+  
+  **Screenshots**
+    
+  ![Change Username Result](/docs/screenshots/changeusername.png)
+
+  <hr>
+  
+  ![Change Username Result](/docs/screenshots/changeusername2.png)
+
+  <hr>
+  
+  ![Change Username Result](/docs/screenshots/changeusername3.png)
+
+  <hr>
+
+  ![Change Password Result](/docs/screenshots/changepassword.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #27](https://github.com/alexelbert/catch-chronicle/issues/27)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a logged in user I can follow and unfollow other users so that I can see and remove specific users in my catches feed
+
+  **Test Steps:**
+  - Navigate to a users profile page by clicking their avatar and press button follow to follow a user
+  - Once following you can click unfollow to stop following the user
+  
+  **Expected Results:**
+  - User can navigate to the profile page of another user.
+  - User can see a button to follow or unfollow that user.
+  - Upon clicking "Follow", the system adds the user to the follower list.
+  - Upon clicking "Unfollow", the system removes the user from the follower list.
+  
+  **Screenshots**
+    
+  ![Follow/Unfollow Result](/docs/screenshots/followunfollow.png)
+
+  <hr>
+  
+  ![Follow/Unfollow Result](/docs/screenshots/followunfollow2.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #28](https://github.com/alexelbert/catch-chronicle/issues/28)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can view all the catches by a specific user so that I can catch up on their latest catches
+
+  **Test Steps:**
+  - Navigate to profile page of another user by clicking their avatar
+  - All of their catches are now displaying on their profile page, just scroll to see all
+  - Then just click on a catch to see it's details
+  
+  **Expected Results:**
+  - User can navigate to the profile page of a specific user.
+  - User can view a list of all posts made by that user.
+  - Each catch listed includes relevant details such as catch title, timestamp, and content.
+  - User can click on a post to view its full details.
+  
+  **Screenshots**
+    
+  ![Catches By Single User Result](/docs/screenshots/singleusercatches.png)
+
+  <hr>
+  
+  ![Catches By Single User Result](/docs/screenshots/singleusercatches2.png)
+
+  <hr>
+  
+  ![Catches By Single User Result](/docs/screenshots/singleusercatches3.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #29](https://github.com/alexelbert/catch-chronicle/issues/29)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a logged in user I can edit my profile so that I can change my profile picture, name, bio, location, other social media
+
+  **Test Steps:**
+  - Navigate to your profile page by clicking your avatar
+  - Click the gear icon and select edit profile
+  - Edit the input fields and press save button
+  
+  **Expected Results:**
+  - User can navigate to the profile settings page.
+  - User can edit profile information such as bio, avatar, and other relevant details.
+  - Upon submission, the system updates the user's profile information.
+  
+  **Screenshots**
+    
+  ![Edit Profile Result](/docs/screenshots/editprofile.png)
+
+  <hr>
+  
+  ![Edit Profile Result](/docs/screenshots/editprofile2.png)
+
+  <hr>
+  
+  ![Catches By Single User Result](/docs/screenshots/singleusercatches3.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #24](https://github.com/alexelbert/catch-chronicle/issues/24)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can view other users profiles so that I can see their catches and learn more about them
+
+  **Test Steps:**
+  - Navigate to your profile page by clicking your avatar
+  - Here you can see information about the user and their catches
+  
+  **Expected Results:**
+  - User can navigate to their own profile page.
+  - Profile page displays relevant user information such as bio, avatar, follower count, following count and their catches.
+  
+  **Screenshots**
+    
+  ![Profile Page Result](/docs/screenshots/profileinformation.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #25](https://github.com/alexelbert/catch-chronicle/issues/25)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can see a list of the most popular profiles so that I can see which profiles are popular
+
+  **Test Steps:**
+  - Main page is displaying popular profiles on the right of the feed on larger screens and above on smaller screens
+  - Click on the avatar of a popular profile and it will take you to their profile page where you can see more information about them
+  
+  **Expected Results:**
+  - User can access a page displaying popular profiles.
+  - Profiles are ranked based on criteria like follower count or likes.
+  - Each profile listed includes relevant details such as username and avatar.
+  - User can click on a popular profile to view full details about the user.
+  
+  **Screenshots**
+    
+  ![Popular Profiles Result](/docs/screenshots/popularprofile.png)
+
+  <hr>
+    
+  ![Popular Profiles Result](/docs/screenshots/popularprofile2.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #13](https://github.com/alexelbert/catch-chronicle/issues/13)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can search for catches with keywords so that I can find the catches and profiles that I'm most interested in
+
+  **Test Steps:**
+  - The search bar is located in both pages with catch feeds (main page / Liked page) 
+  - When user start typing it renders catches or username based of the character inputs
+  
+  **Expected Results:**
+  - User can input keywords or phrases into the search bar.
+  - System returns relevant results matching the search query.
+  - User can filter or refine search results as needed.
+  
+  **Screenshots**
+    
+  ![Search Bar Result](/docs/screenshots/searchbar.png)
+
+  <hr>
+    
+  ![Search Bar Result](/docs/screenshots/searchbar2.png)
+
+  <hr>
+    
+  ![Search Bar Result](/docs/screenshots/searchbar3.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #14](https://github.com/alexelbert/catch-chronicle/issues/14)
+
+Result: Passed ✅ | Completed in [Sprint 2](https://github.com/alexelbert/catch-chronicle/milestone/2?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a logged in user I can view the catches that I have liked so that I can find the catches I enjoy the most
+
+  **Test Steps:**
+  - When navigating to the Liked navigation link the catches displaying are the ones that you have liked
+  
+  **Expected Results:**
+  - User can access a page displaying catches they have liked.
+  
+  **Screenshots**
+    
+  ![Liked Catches View Result](/docs/screenshots/likedcatchesonly.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #26](https://github.com/alexelbert/catch-chronicle/issues/26)
+
+User Story: User profile - user status
+
+Result: Not completed ❌ | Prioritized as **Wont-have**, moved back to [Backlog](https://github.com/users/alexelbert/projects/5/views/2)
+
+<hr>
+
+Test for [Test for User story #35](https://github.com/alexelbert/catch-chronicle/issues/35)
+
+Result: Passed ✅ | Completed in [Sprint 3](https://github.com/alexelbert/catch-chronicle/milestone/3?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: As a user I can view all my catches in a table so that I as a user can have a broad overlook of all my catches more easily
+
+  **Test Steps:**
+  - Click on the navigation link My Catches
+  - Scroll to see a table of all your catches
+  - Table is displaying date, location, species, method, weight, length, time weather and lure
+  
+  **Expected Results:**
+  - Table that renders all of a users catches only functional to the currently logged in user.
+  - Table should be responsive.
+  - Table should display most vital elements of the catch.
+  
+  **Screenshots**
+    
+  ![My Catches Page Result](/docs/screenshots/mycatches.png)
+
+  <hr>
+    
+  ![My Catches Page Result](/docs/screenshots/mycatches2.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
+Test for [Test for User story #36](https://github.com/alexelbert/catch-chronicle/issues/36)
+
+Result: Passed ✅ | Completed in [Sprint 3](https://github.com/alexelbert/catch-chronicle/milestone/3?closed=1)
+
+<details>
+  <summary>Show detailed results</summary>
+  User Story: Display graph of catches over time
+
+  **Test Steps:**
+  - Click on the navigation link My Catches
+  - At top of the page is a chart with a graph showing your catches by month
+  - Chart is responsive across all screens
+  
+  **Expected Results:**
+  - Render a graph of all catches made from currently logged in user.
+  - Display catches by month over year.
+  - Chart should be responsive
+  
+  **Screenshots**
+    
+  ![My Catches Chart Result](/docs/screenshots/chart.png)
+
+  <hr>
+    
+  ![My Catches Chart Result](/docs/screenshots/chart2.png)
+
+  <hr>
+
+</details>
+
+<hr>
+
 ## Automated Testing
 
 The logic of the most important features of the application have been tested with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
@@ -621,14 +1048,40 @@ Landing page, did not have the best performance due to image loading time.
 
 ![Landing page](/docs/screenshots/lighthouse-landing-page.png)
 
-
-
-
 Sign in page: 
 
 ![Sign In Page](/docs/screenshots/lighthouse-sign-in-page.png)
 
-
 Add catch page:
 
-![Add Catch Page](/docs/screenshots/lighthouse-add-catch.png)
+![Add Catch Page](/docs/screenshots/lighthouse-addcatch.png)
+
+My catches page:
+
+![My Catches Page](/docs/screenshots/lighthouse-mycatches.png)
+
+
+## Bug Fixes
+- Fixed responsiveness of the My Catches table, before fix on smaller screens you had to scroll horizontally. After fix table now shows vertically with separation between catches.
+
+
+![Responsive Fix small screens](/docs/screenshots/responsive-fix-table.png)
+
+- Warning in dev tools for CatchCreateForm/CatchEditForm:
+Warning: `value` prop on `input` should not be null.
+
+Fix: remove null values in postData and initialize all input field values to an empty string (`''`) in `useState` hook [Commit](https://github.com/alexelbert/catch-chronicle/commit/da057ee0f55f36ef814da122daecefa1e4d80749)
+
+## Known Bugs
+
+- During testing when deleting a catch the page froze and could not do anything before restarting the application. This only happened one time out of many tries across multiple different users.
+- When editing a comment and click on the save button there is a bug where a gray outline appears around the container discovered late in testing phase so unfortunately remains unfixed. 
+  
+  ![Edit comment bug](/docs/screenshots/edit-comment-bug.png) 
+
+- During testing when looking at the profile page in different screens there is a bug with the gear icon displaying in the way of the users location and the Catches, Followers, Following titles mash together slightly on the smallest mobile screens
+  
+  ![Responsive issue profile page](/docs/screenshots/responsive-bug-profile-edit-icon-mashed%20text.png)
+
+## Known Limitations
+- In the later stages of the project when fetching all catches for the chart and my catches table the loading time was really slow due to the default pagination setting in the backend. which caused multiple request before rendering. Found a quick fix where i increased the pagination from 10 to 15 (rendered the page about 0.5 seconds faster) tried 20 but that made the landing page too slow. [Commit](https://github.com/alexelbert/catch-chronicle-api/commit/5c7ecb91ad3318b8b8ff12dcf394bbe1c39e1caf) Future fix in the backend by defining pagination with at least two separate classes.
